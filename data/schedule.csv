@@ -1,0 +1,5 @@
+time,type,title_en,title_zh,abstract_en,abstract_zh
+09:00–09:30,talk,Opening Remarks,開幕致詞,Welcome to Theory Day 2026.,歡迎參加 2026 理論日。
+09:30–10:15,talk,Matching Algorithms,配對演算法,We study randomized matching algorithms.,我們研究隨機化配對演算法。
+10:15–10:45,break,Coffee Break,茶歇,,
+10:45–11:30,talk,Approximation Theory,近似理論,Approximation techniques for NP-hard problems.,探討 NP-hard 問題的近似方法。

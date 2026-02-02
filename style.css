@@ -98,3 +98,143 @@ footer {
     padding: 14px 16px;
   }
 }
+/* ------------------ SCHEDULE PAGE ------------------ */
+.schedule {
+  border-top: 1px solid #e5e5e5;
+  margin-top: 32px;
+}
+
+.talk {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.talk-header {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: 140px 1fr 30px;
+  align-items: center;
+  font-size: 1em;
+  cursor: pointer;
+  color: #222;
+}
+
+.talk-header:hover {
+  background-color: #f9f9f9;
+}
+
+.time {
+  color: #666;
+  font-size: 0.95em;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.toggle {
+  font-size: 1.2em;
+  text-align: right;
+}
+
+.abstract {
+  display: none;
+  padding: 0 0 20px 140px;
+  color: #444;
+}
+
+.talk.open .abstract {
+  display: block;
+}
+
+.no-abstract {
+  cursor: default;
+}
+
+/* Language toggle */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.lang-toggle button {
+  border: 1px solid #ccc;
+  background: white;
+  padding: 4px 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+
+.lang-toggle button.active {
+  background: #eee;
+  font-weight: bold;
+}
+
+/* ------------------ MOBILE ------------------ */
+@media (max-width: 600px) {
+  .talk-header {
+    grid-template-columns: 100px 1fr 30px;
+    padding: 14px 0;
+  }
+
+  .abstract {
+    padding-left: 100px;
+  }
+
+  .lang-toggle button {
+    padding: 3px 8px;
+  }
+}
+/* ------------------ HERO SECTION ------------------ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 300px; /* adjust as needed */
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop image nicely */
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.hero-text h1 {
+  font-size: 2.8em;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-top: 0.3em;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero {
+    height: 200px;
+  }
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+  .hero-text p {
+    font-size: 1em;
+  }
+}
