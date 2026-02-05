@@ -1,8 +1,9 @@
-const CSV_URL = "data/schedule.csv"; // CSV exported from Excel
+const CSV_URL = "data/schedule.csv";
 let currentLang = "en";
+let currentDay = "1";
 let scheduleData = [];
 
-// Fetch CSV and parse
+// Fetch CSV
 fetch(CSV_URL)
   .then(res => res.text())
   .then(text => {
@@ -10,7 +11,6 @@ fetch(CSV_URL)
     renderSchedule();
   });
 
-// Simple CSV parser
 function parseCSV(text) {
   const lines = text.trim().split("\n");
   const headers = lines.shift().split(",");
@@ -22,58 +22,47 @@ function parseCSV(text) {
   });
 }
 
-// Render schedule
-
 function renderSchedule() {
   const container = document.getElementById("schedule");
   container.innerHTML = "";
 
   scheduleData.forEach(item => {
+    if (item.day !== currentDay) return;
+
     const abstract = item[`abstract_${currentLang}`]?.trim();
-    const hasAbstract = abstract && abstract.length > 0;
+    const hasAbstract = !!abstract;
 
-    // For breaks or items with no abstract
-    const noAbstractClass = hasAbstract ? "" : "no-abstract";
+    const div = document.createElement("div");
+    div.className = "talk";
 
-    const html = `
-      <div class="talk">
-        <button class="talk-header ${noAbstractClass}">
-          <span class="time">${item.time}</span>
-          <span class="title">${item[`title_${currentLang}`]}</span>
-          ${hasAbstract ? `<span class="toggle">+</span>` : ""}
-        </button>
+    div.innerHTML = `
+      <div class="time">${item.time}</div>
+      <div class="content">
+        <div class="title">${item[`title_${currentLang}`]}</div>
         ${hasAbstract ? `<div class="abstract"><p>${abstract}</p></div>` : ""}
       </div>
     `;
-    container.insertAdjacentHTML("beforeend", html);
-  });
 
-  // Attach click events AFTER all talks are in DOM
-  document.querySelectorAll(".talk-header").forEach(header => {
-    if (header.classList.contains("no-abstract")) return;
-    header.addEventListener("click", () => {
-      const talk = header.parentElement;
-      const toggle = header.querySelector(".toggle");
-      talk.classList.toggle("open");
-      toggle.textContent = talk.classList.contains("open") ? "–" : "+";
-    });
+    container.appendChild(div);
   });
 }
 
+// Toggle abstract
+document.getElementById("schedule").addEventListener("click", e => {
+  const title = e.target.closest(".title");
+  if (!title) return;
+  const talk = title.closest(".talk");
+  const abstract = talk.querySelector(".abstract");
+  if (!abstract) return;
+  talk.classList.toggle("open");
+});
 
-
-// Language toggle
-document.querySelectorAll(".lang-toggle button").forEach(btn => {
+// Day buttons
+document.querySelectorAll(".day-toggle button").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".lang-toggle button")
-      .forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".day-toggle button").forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-
-    currentLang = btn.dataset.lang;
-    document.documentElement.lang = currentLang === "zh" ? "zh-Hant" : "en";
-    document.getElementById("page-title").textContent =
-      currentLang === "zh" ? "議程" : "Schedule";
-
+    currentDay = btn.dataset.day;
     renderSchedule();
   });
 });

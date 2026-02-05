@@ -9,30 +9,86 @@
 
 <body>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="registration.html">Registration</a></li>
-    <li><a href="schedule.html">Schedule</a></li>
-    <li><a href="city-tour.html">City Tour</a></li>
-  </ul>
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo-wrapper">
+      <img src="images/logo-small.png" alt="NYCU Logo" class="nav-logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="city-tour.html">City Tour</a></li>
+    </ul>
+  </div>
 </nav>
 
+<div class="hero">
+  <div class="hero-text">
+    <h1>City Tour</h1>
+    <p>Day 2 Afternoon: Visit National Tsing Hua & Chiao Tung Universities</p>
+  </div>
+</div>
+
 <main>
-  <h1>City Tour (Optional)</h1>
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      On the second day of NYCU Theory Day, we will explore the prestigious 
+      <strong>National Tsing Hua University (NTHU)</strong> and 
+      <strong>National Chiao Tung University (NCTU)</strong> campuses. 
+      Participants will have the opportunity to see these historic universities, 
+      learn about their academic environment, and experience the Hsinchu area.
+    </p>
+    <p>
+      The tour is intended to give an overview of Taiwan’s top universities and 
+      their vibrant research communities. Please ensure to join the bus at the scheduled departure time.
+    </p>
+  </section>
 
-  <p>
-    An informal city tour may be organized for participants.
-  </p>
+  <section>
+    <h2>Locations on Map</h2>
+    <p>Use the map below to see where NTHU and NCTU are located:</p>
 
-  <p class="tbd">
-    Details regarding timing, itinerary, and registration are TBD.
-  </p>
+    <!-- Google Maps Embed -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.503874523248!2d120.989508!3d24.805477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d6e7434ed47%3A0x30db0f1184cc0b60!2sNational%20Tsing%20Hua%20University!5e0!3m2!1sen!2stw!4v1676180041234!5m2!1sen!2stw"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2949.0637333450083!2d120.963227!3d24.803950!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d7b33e0f9ed%3A0x9d1fbdc6b125eb07!2sNational%20Chiao%20Tung%20University!5e0!3m2!1sen!2stw!4v1676180123456!5m2!1sen!2stw"
+        width="100%"
+        height="450"
+        style="border:0; margin-top: 16px;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
 </main>
 
 <footer>
   © 2026 NYCU Theory Day — Contact: <a href="mailto:organizers@example.com">organizers@example.com</a>
 </footer>
+
+<style>
+  .map-container {
+    margin-top: 16px;
+    max-width: 100%;
+  }
+
+  iframe {
+    border-radius: 6px;
+  }
+</style>
 
 </body>
 </html>

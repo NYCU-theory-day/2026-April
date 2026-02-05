@@ -9,50 +9,101 @@
 
 <body>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="registration.html">Registration</a></li>
-    <li><a href="schedule.html">Schedule</a></li>
-    <li><a href="city-tour.html">City Tour</a></li>
-  </ul>
-</nav>
-<div class="hero">
-    <img src="images/nycu-campus.jpg" alt="NYCU Campus" class="hero-img" />
-    <div class="hero-text">
-      <h1>NYCU Theory Day 2026</h1>
-      <p>April 22–23, NYCU Hsinchu Campus, Taiwan</p>
+<nav class="navbar">
+  <div class="nav-inner">
+    <!-- Logo left -->
+    <div class="nav-logo-wrapper">
+      <img src="images/logo-small.png" alt="NYCU Logo" class="nav-logo" />
     </div>
+
+    <!-- Links right -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="city-tour.html">City Tour</a></li>
+    </ul>
+
+    <!-- Hamburger (for mobile) -->
+    
   </div>
+</nav>
+
+
+
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-text">
+    <h1>NYCU Theory Day 2026</h1>
+    <p>April 22–23, 2026 · NYCU Hsinchu Campus, Taiwan</p>
+  </div>
+</div>
+
+
 <main>
-  <h1>NYCU Theory Day 2026</h1>
 
-  <p>
-    The 2026 NYCU Theory Day event will be held on April 22–23 at the
-    National Yang Ming Chiao Tung University (NYCU), Hsinchu Campus, Taiwan.
-    The NYCU Hsinchu (Chiaotung) Campus is located adjacent to Taiwan’s major
-    science park and semiconductor industry hub.
-  </p>
+  <!-- About -->
+  <section>
+    <p>
+      NYCU Theory Day 2026 is a two-day in-person event held at the
+      National Yang Ming Chiao Tung University (NYCU), Hsinchu Campus.
+      The event aims to bring together researchers in theoretical
+      computer science to exchange ideas, present recent advances,
+      and foster collaboration between international and domestic communities.
+    </p>
 
-  <p>
-    The primary objective of NYCU Theory Day is to provide a forum for
-    international and domestic researchers in theoretical computer science
-    to exchange ideas, to expose NYCU students to forefront research in
-    theory, and to encourage young researchers to pursue advanced study in
-    the field. This will be the first time we hold the Theory Day event at
-    NYCU.
-  </p>
+    <p>
+      The NYCU Hsinchu (Chiaotung) Campus is located adjacent to Taiwan’s
+      major science park and semiconductor industry hub.
+      This will be the first time the Theory Day event is hosted at NYCU.
+    </p>
+  </section>
 
-  <div class="meta-box">
-    <strong>Date:</strong> April 22–23, 2026<br>
-    <strong>Location:</strong> NYCU Hsinchu (Chiaotung) Campus, Taiwan<br>
-    <strong>Format:</strong> In-person
-  </div>
+  <!-- Event Info -->
+  <section>
+    <h2>Event Information</h2>
+    <div class="meta-box">
+      <strong>Date:</strong> April 22–23, 2026<br>
+      <strong>Location:</strong> NYCU Hsinchu (Chiaotung) Campus, Taiwan<br>
+      <strong>Format:</strong> In-person
+    </div>
+  </section>
+
+  <!-- Speakers -->
+  <section>
+    <h2>Invited Speakers</h2>
+    <p class="tbd">To be announced.</p>
+  </section>
+
+  <!-- Organizers -->
+  <section>
+    <h2>Organizers</h2>
+    <p class="tbd">To be announced.</p>
+  </section>
+
+  <!-- Sponsors -->
+  <section>
+    <h2>Sponsors</h2>
+    <p class="tbd">To be announced.</p>
+  </section>
+
 </main>
 
 <footer>
-  © 2026 NYCU Theory Day — Contact: <a href="mailto:organizers@example.com">organizers@example.com</a>
+  © 2026 NYCU Theory Day —
+  Contact: <a href="mailto:organizers@example.com">organizers@example.com</a>
 </footer>
+
+<script>
+  // Mobile hamburger toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
 
 </body>
 </html>

@@ -1,3 +1,18 @@
+/* ======================================================
+   DESIGN SYSTEM
+====================================================== */
+
+:root {
+  --accent: #2f4a6d;
+  --accent-light: #e9eef4;
+  --border: #e5e5e5;
+  --text-muted: #666;
+}
+
+/* ======================================================
+   BASE
+====================================================== */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -7,36 +22,63 @@ body {
   background: #ffffff;
 }
 
-/* Navigation */
-nav {
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* NAVBAR */
+.navbar {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: #ffffff;
   border-bottom: 1px solid #e5e5e5;
   z-index: 1000;
 }
 
-nav ul {
-  list-style: none;
+.nav-inner {
   display: flex;
-  gap: 22px;
-  padding: 14px 24px;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between; /* logo left, links right */
   max-width: 1000px;
-  flex-wrap: wrap; /* allow wrapping on small screens */
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 60px;
 }
 
-nav a {
-  text-decoration: none;
+.nav-logo {
+  height: 40px; /* adjust size */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
   color: #222;
   font-weight: 500;
+  text-decoration: none;
 }
 
-nav a:hover {
+.nav-links li a:hover {
   text-decoration: underline;
 }
 
-/* Layout */
+
+
+/* ======================================================
+   LAYOUT
+====================================================== */
+
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -44,8 +86,16 @@ main {
 }
 
 section {
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
+
+main p {
+  max-width: 720px;
+}
+
+/* ======================================================
+   TYPOGRAPHY
+====================================================== */
 
 h1 {
   font-size: 2.4em;
@@ -54,35 +104,163 @@ h1 {
 
 h2 {
   font-size: 1.6em;
-  border-bottom: 2px solid #eee;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent-light);
   padding-bottom: 6px;
   margin-bottom: 20px;
 }
 
+.tbd {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   META BOX
+====================================================== */
+
 .meta-box {
   background: #f9f9f9;
-  border-left: 4px solid #333;
+  border-left: 4px solid var(--accent);
   padding: 18px 22px;
   margin: 28px 0;
 }
 
-.tbd {
-  font-style: italic;
-  color: #666;
+/* ======================================================
+   HERO
+====================================================== */
+
+/* ================= HERO ================= */
+.hero {
+  height: 400px; /* adjust as needed */
+  width: 100%;
+  background-image: url('images/viewbannerimage.jpg'); /* correct syntax */
+  background-size: cover;        /* fills container */
+  background-position: center;   /* centers image */
+  background-repeat: no-repeat;  /* avoid tiling */
+  position: relative;            /* for absolute children like text */
+  display: flex;                 /* center content */
+  align-items: center;
+  justify-content: center;
 }
+
+.hero-text {
+  position: relative;  /* ensures it stays above background */
+  color: rgb(245, 240, 240) ;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7); /* makes text readable */
+  padding: 0 20px; /* small padding for narrow screens */
+}
+
+.hero-text h1 {
+  font-size: 2.8em;
+  margin: 0;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-top: 0.3em;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .hero {
+    height: 200px;
+  }
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+  .hero-text p {
+    font-size: 1em;
+  }
+}
+
+/* ======================================================
+   SCHEDULE (ACADEMIC STYLE)
+====================================================== */
+
+.schedule {
+  margin-top: 40px;
+}
+
+.session {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.session-header {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  column-gap: 20px;
+  align-items: baseline;
+}
+
+.session-header .time {
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.session-header .title {
+  font-weight: 500;
+}
+
+.session-meta {
+  margin-left: 160px;
+  margin-top: 6px;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.session-meta .meta {
+  margin-right: 16px;
+}
+
+details {
+  margin-left: 160px;
+  margin-top: 8px;
+}
+
+details summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.9em;
+}
+
+details summary:hover {
+  text-decoration: underline;
+}
+
+details p {
+  margin-top: 8px;
+  max-width: 700px;
+}
+
+.session.break .title {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
 
 footer {
   text-align: center;
   padding: 32px 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid var(--border);
   font-size: 0.9em;
-  color: #666;
+  color: var(--text-muted);
 }
 
-/* ------------------ MOBILE FRIENDLY ------------------ */
+/* ======================================================
+   MOBILE
+====================================================== */
+
 @media (max-width: 600px) {
   nav ul {
-    flex-direction: column; /* stack menu items vertically */
+    flex-direction: column;
     gap: 12px;
     padding: 12px 16px;
   }
@@ -94,147 +272,120 @@ footer {
   h1 { font-size: 1.8em; }
   h2 { font-size: 1.3em; }
 
-  .meta-box {
-    padding: 14px 16px;
+  .hero {
+    height: 200px;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-text p {
+    font-size: 1em;
+  }
+
+  .session-header {
+    grid-template-columns: 100px 1fr;
+  }
+
+  .session-meta,
+  details {
+    margin-left: 100px;
   }
 }
-/* ------------------ SCHEDULE PAGE ------------------ */
 .schedule {
-  border-top: 1px solid #e5e5e5;
-  margin-top: 32px;
-}
-
-.talk {
-  border-bottom: 1px solid #e5e5e5;
+  display: grid;
+  grid-template-columns: 120px 1fr; /* time / content */
+  row-gap: 16px;
+  column-gap: 20px;
 }
 
 .talk-header {
-  width: 100%;
-  background: none;
-  border: none;
-  padding: 18px 0;
-  display: grid;
-  grid-template-columns: 140px 1fr 30px;
-  align-items: center;
-  font-size: 1em;
-  cursor: pointer;
-  color: #222;
-}
-
-.talk-header:hover {
-  background-color: #f9f9f9;
+  display: contents; /* lets grid handle columns */
 }
 
 .time {
-  color: #666;
+  font-weight: 500;
+  color: var(--accent);
   font-size: 0.95em;
+  align-self: start;
 }
 
 .title {
   font-weight: 500;
-}
-
-.toggle {
-  font-size: 1.2em;
-  text-align: right;
+  margin-bottom: 4px;
 }
 
 .abstract {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
   display: none;
-  padding: 0 0 20px 140px;
-  color: #444;
 }
 
 .talk.open .abstract {
   display: block;
 }
-
-.no-abstract {
-  cursor: default;
-}
-
-/* Language toggle */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.day-toggle {
   margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
 }
 
-.lang-toggle button {
-  border: 1px solid #ccc;
-  background: white;
-  padding: 4px 10px;
-  margin-left: 5px;
+.day-toggle button {
+  padding: 6px 14px;
+  border: 1px solid var(--accent);
+  background: #fff;
+  color: var(--accent);
+  font-weight: 500;
   cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.day-toggle button.active,
+.day-toggle button:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.talk {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  cursor: pointer; /* shows it can be clicked */
+}
+
+.abstract {
+  padding-left: 4px; /* slight indent */
+  line-height: 1.4em;
+}
+.schedule {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* time / content */
+  row-gap: 16px;
+  column-gap: 20px;
+}
+
+.talk .time {
+  font-weight: 500;
+  color: var(--accent);
   font-size: 0.95em;
 }
 
-.lang-toggle button.active {
-  background: #eee;
-  font-weight: bold;
+.talk .title {
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
-/* ------------------ MOBILE ------------------ */
-@media (max-width: 600px) {
-  .talk-header {
-    grid-template-columns: 100px 1fr 30px;
-    padding: 14px 0;
-  }
-
-  .abstract {
-    padding-left: 100px;
-  }
-
-  .lang-toggle button {
-    padding: 3px 8px;
-  }
-}
-/* ------------------ HERO SECTION ------------------ */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 300px; /* adjust as needed */
-  overflow: hidden;
-  margin-bottom: 40px;
+.talk .abstract {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: none;
 }
 
-.hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* crop image nicely */
+.talk.open .abstract {
   display: block;
-}
-
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-}
-
-.hero-text h1 {
-  font-size: 2.8em;
-  margin: 0;
-}
-
-.hero-text p {
-  font-size: 1.2em;
-  margin-top: 0.3em;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .hero {
-    height: 200px;
-  }
-  .hero-text h1 {
-    font-size: 1.8em;
-  }
-  .hero-text p {
-    font-size: 1em;
-  }
 }

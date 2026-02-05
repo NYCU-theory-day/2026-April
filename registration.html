@@ -9,26 +9,72 @@
 
 <body>
 
-<nav>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="registration.html">Registration</a></li>
-    <li><a href="schedule.html">Schedule</a></li>
-    <li><a href="city-tour.html">City Tour</a></li>
-  </ul>
+<nav class="navbar">
+  <div class="nav-inner">
+    <!-- Logo left -->
+    <div class="nav-logo-wrapper">
+      <img src="images/logo-small.png" alt="NYCU Logo" class="nav-logo" />
+    </div>
+
+    <!-- Links right -->
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="registration.html">Registration</a></li>
+      <li><a href="schedule.html">Schedule</a></li>
+      <li><a href="city-tour.html">City Tour</a></li>
+    </ul>
+  </div>
 </nav>
 
-<main>
-  <h1>Registration</h1>
+<div class="hero">
+  <div class="hero-text">
+    <h1>Registration</h1>
+    <p>~ April 10, 2026 · NYCU Hsinchu Campus, Taiwan</p>
+  </div>
+</div>
 
-  <p class="tbd">
-    Registration details will be announced.
-  </p>
+<main>
+  <section>
+    <p class="tbd">
+      Registration is free, but necessary for catering and scheduling purposes.
+      To register, please fill the form below by the deadline.
+    </p>
+
+    <!-- Google Form Placeholder -->
+    <div class="registration-form">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd-placeholder-link/viewform" target="_blank">
+        <button class="btn">Fill Registration Form</button>
+      </a>
+    </div>
+  </section>
 </main>
 
 <footer>
   © 2026 NYCU Theory Day — Contact: <a href="mailto:organizers@example.com">organizers@example.com</a>
 </footer>
+
+<style>
+  /* Quick style for the button */
+  .registration-form {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  .registration-form .btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .registration-form .btn:hover {
+    background-color: #1f3550;
+  }
+</style>
 
 </body>
 </html>
