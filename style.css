@@ -45,6 +45,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* basic link styles */
@@ -76,7 +79,10 @@ a:hover { text-decoration: underline; }
   background: #f8f8f8;
   border-bottom: 1px solid var(--border);
   z-index: 1000;
-  overflow: visible; /* allow X to escape */
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
 }
 
 

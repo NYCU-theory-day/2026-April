@@ -1,0 +1,43 @@
+<header class="header-bar">
+  <div class="header-left">
+    <img src="images/logo-small.png" alt="NYCU Logo" class="logo">
+    <div class="title-text">
+      <div class="line1">NYCU Theory Day</div>
+      <div class="line2">April 22–23, 2026 @ NYCU, Taiwan</div>
+    </div>
+  </div>
+ <button class="nav-toggle" aria-label="Toggle navigation">
+  <span class="icon-hamburger">☰</span>
+  <span class="icon-close">✕</span>
+</button>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="registration.html">Registration</a></li>
+    <li><a href="schedule.html">Schedule</a></li>
+    <li><a href="city-tour.html">City Tour</a></li>
+    <li><a href="https://cmct-2026.github.io/#/" target="_blank">CMCT-2026</a></li>
+  </ul>
+</header>
+
+<script>
+  // Set active link based on current page
+  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      link.classList.add('active');
+    }
+  });
+
+  // Mobile hamburger toggle
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      toggle.classList.toggle('active');
+    });
+  }
+</script>
