@@ -47,7 +47,8 @@ body {
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* basic link styles */
@@ -79,7 +80,7 @@ a:hover { text-decoration: underline; }
   background: #f8f8f8;
   border-bottom: 1px solid var(--border);
   z-index: 1000;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   box-sizing: border-box;
   flex-shrink: 0;
@@ -174,7 +175,7 @@ a:hover { text-decoration: underline; }
     border-radius: 6px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     width: 220px;        /* fixed width for consistency */
-    text-align: right;   /* right-align text */
+    text-align: center;  /* center-align text */
     z-index: 1500;
   }
 
@@ -194,7 +195,6 @@ a:hover { text-decoration: underline; }
     color: var(--accent);
     background: var(--accent-light);
     border-radius: 4px;
-    padding-right: 6px; /* subtle shift to the right for elegance */
   }
 
   .nav-toggle {
