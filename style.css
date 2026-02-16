@@ -292,6 +292,112 @@ a:hover { text-decoration: underline; }
     gap: 12px;
   }
 }
+/* ======================================================
+   HERO CAROUSEL (matches hero style)
+====================================================== */
+.hero-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px var(--gutter);
+  height: 25vw;               /* scales with viewport width */
+  min-height: 180px;          /* prevents it from being too small */
+  max-height: 300px;          /* prevents it from being too tall */
+  overflow: hidden;
+  background-color: var(--accent);
+}
+
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.hero-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-dots .dot.active {
+  background-color: #fff;
+}
+
+/* Arrows */
+.hero-prev,
+.hero-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-prev { left: 20px; }
+.hero-next { right: 20px; }
+
+/* ================= HERO INNER (if you want to place overlay text later) ================= */
+.hero-carousel-inner {
+  max-width: var(--hero-inner-width); /* matches hero inner width */
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-carousel { padding: 48px var(--gutter); }
+  .hero-prev, .hero-next { width: 36px; height: 36px; font-size: 1.5rem; }
+  .hero-dots .dot { width: 10px; height: 10px; }
+}
+
+@media (max-width: 480px) {
+  .hero-carousel { padding: 32px var(--gutter); }
+  .hero-prev, .hero-next { width: 32px; height: 32px; font-size: 1.2rem; }
+  .hero-dots .dot { width: 8px; height: 8px; }
+}
 
 /* ======================================================
    MAIN CONTENT
