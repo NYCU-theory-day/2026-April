@@ -3,6 +3,7 @@
   // List of pages and their corresponding files
   const pages = {
     'index.html': { title: 'NYCU Theory Day 2026', file: 'index.html' },
+    'speaker.html':{title:'Speaker – NYCU Theory Day 2026', file:'speaker.html'},
     'registration.html': { title: 'Registration – NYCU Theory Day 2026', file: 'registration.html' },
     'schedule.html': { title: 'Schedule – NYCU Theory Day 2026', file: 'schedule.html' },
     'city-tour.html': { title: 'City Tour – NYCU Theory Day 2026', file: 'city-tour.html' }
@@ -43,6 +44,9 @@
         
         if (newMain && currentMain) {
           currentMain.innerHTML = newMain.innerHTML;
+          if (typeof initSpeakers === "function") {
+              initSpeakers();
+            }
         }
         
         if (newFooter && currentFooter) {
@@ -136,4 +140,12 @@
 
   // Initial setup in case header is already loaded
   setupNavigation();
+
+  // 🔥 Initialize page-specific scripts on first load
+document.addEventListener("DOMContentLoaded", function () {
+  if (typeof initSpeakers === "function") {
+    initSpeakers();
+  }
+});
+
 })();
