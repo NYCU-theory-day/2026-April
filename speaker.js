@@ -88,8 +88,8 @@ function initSpeakers() {
 
   const categories = [
     { key: "keynote", label: "Keynote Lectures" },
-    { key: "plenary", label: "Plenary Talks" },
-    { key: "others", label: "Short Talks" }
+    { key: "plenary", label: "Invited Talks (I)" },
+    { key: "others", label: "Invited Talks (II)" }
   ];
 
   let activeCategory = "keynote";
