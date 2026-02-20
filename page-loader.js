@@ -1,5 +1,13 @@
 // Single Page Navigation - Load only content without reloading header
 (function() {
+  function getRouteKey(pathValue) {
+    const raw = (pathValue || '').split('?')[0].split('#')[0];
+    const trimmed = raw.replace(/\/+$/, '');
+    const segment = trimmed.split('/').pop();
+    if (!segment) return 'index';
+    return segment.replace(/\.html$/i, '').toLowerCase();
+  }
+
   // List of pages and their corresponding files
   const pages = {
     'index.html': { title: 'NYCU Theory Day 2026', file: 'index.html' },
@@ -9,7 +17,8 @@
     'city-tour.html': { title: 'City Tour – NYCU Theory Day 2026', file: 'city-tour.html' }
   };
 
-  function loadPage(pageName) {
+  function loadPage(pageName, options = {}) {
+    const { pushHistory = true } = options;
     const pageInfo = pages[pageName];
     if (!pageInfo) return false;
 
@@ -23,30 +32,24 @@
         const parser = new DOMParser();
         const newDoc = parser.parseFromString(xhr.responseText, 'text/html');
         
-        // Extract content from the loaded page (everything after header)
+        // Extract content areas from the loaded page
         const newMain = newDoc.querySelector('main');
         const newFooter = newDoc.querySelector('footer');
-        const newHero = newDoc.querySelector('.hero');
         
         // Get current container
         const pageContainer = document.querySelector('.page-container');
         if (!pageContainer) return;
         
         // Get current content areas
-        const currentHero = pageContainer.querySelector('.hero');
         const currentMain = pageContainer.querySelector('main');
         const currentFooter = pageContainer.querySelector('footer');
         
         // Replace content smoothly
-        if (newHero && currentHero) {
-          currentHero.innerHTML = newHero.innerHTML;
-        }
-        
         if (newMain && currentMain) {
           currentMain.innerHTML = newMain.innerHTML;
           if (typeof initSpeakers === "function") {
-              initSpeakers();
-            }
+            initSpeakers();
+          }
         }
         
         if (newFooter && currentFooter) {
@@ -57,7 +60,9 @@
         document.title = pageInfo.title;
         
         // Update URL without page reload
-        window.history.pushState({ page: pageName }, pageInfo.title, pageName);
+        if (pushHistory) {
+          window.history.pushState({ page: pageName }, pageInfo.title, pageName);
+        }
         
         // Update active navigation link
         updateActiveLink(pageName);
@@ -84,10 +89,11 @@
   }
 
   function updateActiveLink(pageName) {
+    const routeKey = getRouteKey(pageName);
     document.querySelectorAll('.nav-links a').forEach(link => {
-      const href = link.getAttribute('href');
+      const href = link.getAttribute('href') || '';
       link.classList.remove('active');
-      if (href === pageName) {
+      if (getRouteKey(href) === routeKey) {
         link.classList.add('active');
       }
     });
@@ -111,6 +117,7 @@
       
       link.addEventListener('click', function(e) {
         e.preventDefault();
+        updateActiveLink(href);
         loadPage(href);
       });
     });
@@ -119,7 +126,7 @@
   // Handle browser back/forward buttons
   window.addEventListener('popstate', function(e) {
     if (e.state && e.state.page) {
-      loadPage(e.state.page);
+      loadPage(e.state.page, { pushHistory: false });
     }
   });
 
@@ -140,12 +147,13 @@
 
   // Initial setup in case header is already loaded
   setupNavigation();
+  updateActiveLink(window.location.pathname);
 
-  // 🔥 Initialize page-specific scripts on first load
-document.addEventListener("DOMContentLoaded", function () {
-  if (typeof initSpeakers === "function") {
-    initSpeakers();
-  }
-});
+  // Initialize page-specific scripts on first load
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof initSpeakers === "function") {
+      initSpeakers();
+    }
+  });
 
 })();

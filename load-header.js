@@ -1,5 +1,13 @@
 // Load shared header into the page
 (function() {
+  function getRouteKey(pathValue) {
+    const raw = (pathValue || '').split('?')[0].split('#')[0];
+    const trimmed = raw.replace(/\/+$/, '');
+    const segment = trimmed.split('/').pop();
+    if (!segment) return 'index';
+    return segment.replace(/\.html$/i, '').toLowerCase();
+  }
+
   function loadHeader() {
     const pageContainer = document.querySelector('.page-container');
     if (!pageContainer) {
@@ -17,10 +25,11 @@
         pageContainer.insertAdjacentHTML('afterbegin', xhr.responseText);
         
         // Set active link based on current page
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const currentRoute = getRouteKey(window.location.pathname);
         document.querySelectorAll('.nav-links a').forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+          link.classList.remove('active');
+          const href = link.getAttribute('href') || '';
+          if (getRouteKey(href) === currentRoute) {
             link.classList.add('active');
           }
         });

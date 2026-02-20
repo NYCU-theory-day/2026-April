@@ -1,40 +1,53 @@
-const slides = document.querySelectorAll('.hero-slide');
-const dots = document.querySelectorAll('.dot');
-const prevBtn = document.querySelector('.hero-prev');
-const nextBtn = document.querySelector('.hero-next');
-let currentIndex = 0;
-let intervalId;
+(function () {
+  function initHeroCarousel() {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel || carousel.dataset.initialized === 'true') return;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-  dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-  currentIndex = index;
-}
+    const slides = carousel.querySelectorAll('.hero-slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.hero-prev');
+    const nextBtn = carousel.querySelector('.hero-next');
+    if (!slides.length || !prevBtn || !nextBtn) return;
 
-function startCarousel() {
-  intervalId = setInterval(() => {
-    showSlide((currentIndex + 1) % slides.length);
-  }, 4000); // 4s
-}
+    let currentIndex = 0;
+    let intervalId;
 
-function stopCarousel() {
-  clearInterval(intervalId);
-}
+    function showSlide(index) {
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+      currentIndex = index;
+    }
 
-prevBtn.addEventListener('click', () => {
-  showSlide((currentIndex - 1 + slides.length) % slides.length);
-});
-nextBtn.addEventListener('click', () => {
-  showSlide((currentIndex + 1) % slides.length);
-});
+    function startCarousel() {
+      clearInterval(intervalId);
+      intervalId = setInterval(() => {
+        showSlide((currentIndex + 1) % slides.length);
+      }, 4000);
+    }
 
-dots.forEach(dot => {
-  dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
-});
+    function stopCarousel() {
+      clearInterval(intervalId);
+    }
 
-// Pause on hover
-document.querySelector('.hero-carousel').addEventListener('mouseenter', stopCarousel);
-document.querySelector('.hero-carousel').addEventListener('mouseleave', startCarousel);
+    prevBtn.addEventListener('click', () => {
+      showSlide((currentIndex - 1 + slides.length) % slides.length);
+    });
 
-// Initialize
-startCarousel();
+    nextBtn.addEventListener('click', () => {
+      showSlide((currentIndex + 1) % slides.length);
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index, 10)));
+    });
+
+    carousel.addEventListener('mouseenter', stopCarousel);
+    carousel.addEventListener('mouseleave', startCarousel);
+
+    carousel.dataset.initialized = 'true';
+    startCarousel();
+  }
+
+  window.initHeroCarousel = initHeroCarousel;
+  initHeroCarousel();
+})();

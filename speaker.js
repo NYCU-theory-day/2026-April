@@ -1,14 +1,17 @@
 function initSpeakers() {
+  const categoryTabsContainer = document.getElementById("speaker-category-tabs");
   const tabsContainer = document.getElementById("speaker-tabs");
-  if (!tabsContainer) return;
+  if (!categoryTabsContainer || !tabsContainer) return;
 
+  categoryTabsContainer.innerHTML = "";
   tabsContainer.innerHTML = "";
 
   const speakers = [
     {
+      category: "keynote",
       tabTitle: "Hee-Kap Ahn",
       name: "Hee-Kap Ahn / 안희갑 / 安熙甲",
-      title: "Professor, Dept. Computer Science and Engineering Graduate School of Artificial Intelligence",
+      title: "Professor",
       affiliation: "Pohang University of Science and Technology (POSTECH)",
       email: "heekap@postech.ac.kr",
       photo: "images/speakers/heekap.png",
@@ -16,8 +19,9 @@ function initSpeakers() {
       abstract: "https://heekap.github.io/"
     },
     {
+      category: "keynote",
       tabTitle: "Kazuhisa Makino",
-      name: "Kazuhisa Makino",
+      name: "Kazuhisa Makino / 牧野 和久",
       title: "Professor",
       affiliation: "Kyto University",
       email: "add @kurims.kyoto-u.ac.jp",
@@ -26,9 +30,10 @@ function initSpeakers() {
       abstract: "https://www.kurims.kyoto-u.ac.jp/en/list/makino.html"
     },
     {
+      category: "others",
       tabTitle: "Koustav Bhanja",
       name: "Koustav Bhanja",
-      title: "postdoctoral researcher",
+      title: "Postdoctoral Researcher",
       affiliation: "Weizmann Institute",
       email: "koustav.bhanja@weizmann.ac.il ",
       photo: "images/speakers/unnamed.jpg",
@@ -36,9 +41,10 @@ function initSpeakers() {
       abstract: "https://sites.google.com/view/koustav-bhanja/home"
     },
     {
+      category: "others",
       tabTitle: "Michelle Döring",
       name: "Michelle Döring",
-      title: "PhD student",
+      title: "PhD Student",
       affiliation: "Hasso Plattner Institute",
       email: "michelle.doering@hpi.de ",
       photo: "images/speakers/csm_michelle_doering_ce43ac8db1.jpg",
@@ -46,9 +52,10 @@ function initSpeakers() {
       abstract: "https://michelledoering.notion.site/"
     },
     {
+      category: "plenary",
       tabTitle: "Shang-En Huang",
-      name: "黃上恩(Shang-En Huang)",
-      title: "assistant professor",
+      name: "Shang-En Huang / 黃上恩",
+      title: "Assistant professor",
       affiliation: "National Taiwan University",
       email: "	sehuang@csie.ntu.edu.tw",
       photo: "images/speakers/照片-黃上恩-1.jpg",
@@ -56,9 +63,10 @@ function initSpeakers() {
       abstract: "	https://tmt514.github.io/"
     },
     {
+      category: "plenary",
       tabTitle: "William Umboh",
       name: "William Umboh",
-      title: "Lecturer",
+      title: "Assistant Professor",
       affiliation: "The University of Melbourne",
       email: "",
       photo: "images/speakers/profilepic-cropped.jpg",
@@ -66,6 +74,7 @@ function initSpeakers() {
       abstract: "https://williamumboh.com/"
     },
     {
+      category: "plenary",
       tabTitle: "Michael Zlatin",
       name: "Michael Zlatin",
       title: " Assistant Professor",
@@ -77,18 +86,94 @@ function initSpeakers() {
     }
   ];
 
-  function renderTabs() {
-    speakers.forEach((speaker, index) => {
+  const categories = [
+    { key: "keynote", label: "Keynote Lectures" },
+    { key: "plenary", label: "Plenary Talks" },
+    { key: "others", label: "Short Talks" }
+  ];
+
+  let activeCategory = "keynote";
+
+  function getSpeakersByCategory(categoryKey) {
+    return speakers
+      .filter((speaker) => speaker.category === categoryKey)
+      .sort((a, b) => {
+        const surnameA = a.tabTitle.trim().split(/\s+/).pop().toLowerCase();
+        const surnameB = b.tabTitle.trim().split(/\s+/).pop().toLowerCase();
+        if (surnameA !== surnameB) return surnameA.localeCompare(surnameB);
+        return a.tabTitle.localeCompare(b.tabTitle);
+      });
+  }
+
+  function renderCategoryTabs() {
+    categories.forEach((category) => {
+      const button = document.createElement("button");
+      button.className = "speaker-category-tab";
+      button.textContent = category.label;
+      button.dataset.categoryKey = category.key;
+      button.onclick = () => selectCategory(category.key);
+      categoryTabsContainer.appendChild(button);
+    });
+  }
+
+  function renderSpeakerTabs() {
+    tabsContainer.innerHTML = "";
+
+    const categorySpeakers = getSpeakersByCategory(activeCategory);
+
+    categorySpeakers.forEach((speaker, index) => {
       const button = document.createElement("button");
       button.className = "speaker-tab";
       button.textContent = speaker.tabTitle;
       button.onclick = () => selectSpeaker(index);
       tabsContainer.appendChild(button);
     });
+
+    if (categorySpeakers.length === 0) {
+      renderEmptySpeaker();
+      return;
+    }
+
+    selectSpeaker(0);
+  }
+
+  function selectCategory(categoryKey) {
+    activeCategory = categoryKey;
+
+    document.querySelectorAll(".speaker-category-tab").forEach((btn) =>
+      btn.classList.remove("active")
+    );
+
+    const activeButton = categoryTabsContainer.querySelector(
+      `.speaker-category-tab[data-category-key="${categoryKey}"]`
+    );
+
+    if (activeButton) {
+      activeButton.classList.add("active");
+    }
+
+    renderSpeakerTabs();
+  }
+
+  function renderEmptySpeaker() {
+    document.getElementById("speaker-photo").src = "https://via.placeholder.com/300x400";
+    document.getElementById("speaker-name").textContent = "No speakers yet";
+    document.getElementById("speaker-title").textContent = "";
+    document.getElementById("speaker-affiliation").textContent = "";
+    document.getElementById("speaker-email").textContent = "";
+    document.getElementById("speaker-email").href = "#";
+    document.getElementById("speaker-type").textContent =
+      activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
+    document.getElementById("speaker-abstract").textContent = "";
   }
 
   function selectSpeaker(index) {
-    const speaker = speakers[index];
+    const categorySpeakers = getSpeakersByCategory(activeCategory);
+    const speaker = categorySpeakers[index];
+    if (!speaker) {
+      renderEmptySpeaker();
+      return;
+    }
 
     document.querySelectorAll(".speaker-tab").forEach(btn =>
       btn.classList.remove("active")
@@ -105,6 +190,6 @@ function initSpeakers() {
     document.getElementById("speaker-abstract").textContent = speaker.abstract;
   }
 
-  renderTabs();
-  selectSpeaker(0);
+  renderCategoryTabs();
+  selectCategory(activeCategory);
 }
