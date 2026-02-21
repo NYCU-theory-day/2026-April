@@ -45,11 +45,22 @@ function initSpeakers() {
       tabTitle: "Michelle Döring",
       name: "Michelle Döring",
       title: "PhD Student",
-      affiliation: "Hasso Plattner Institute",
+      affiliation: "Hasso Plattner Institute.",
       email: "michelle.doering@hpi.de ",
       photo: "images/speakers/csm_michelle_doering_ce43ac8db1.jpg",
       type: "Invited Speaker",
       abstract: "https://michelledoering.notion.site/"
+    },
+    {
+      category: "plenary",
+      tabTitle: "Michael Zlatin",
+      name: "Michael Zlatin",
+      title: " Assistant Professor",
+      affiliation: " Pomona College.",
+      email: "michael.zlatin@pomona.edu",
+      photo: "images/speakers/mik_pic.png",
+      type: "Invited Speaker",
+      abstract: "https://mzlatin.github.io/"
     },
     {
       category: "plenary",
@@ -73,17 +84,40 @@ function initSpeakers() {
       type: "Invited Speaker",
       abstract: "https://williamumboh.com/"
     },
+    
     {
-      category: "plenary",
-      tabTitle: "Michael Zlatin",
-      name: "Michael Zlatin",
-      title: " Assistant Professor",
-      affiliation: " Pomona College.",
-      email: "michael.zlatin@pomona.edu",
-      photo: "images/speakers/mik_pic.png",
+      category: "others",
+      tabTitle: "Philip Cervenjak",
+      name: "Philip Cervenjak",
+      title: " PhD candidate",
+      affiliation: "University of Melbourne.",
+      email: " philip.cervenjak@unimelb.edu.au",
+      photo: "images/speakers/1520389726397.jpg",
       type: "Invited Speaker",
-      abstract: "https://mzlatin.github.io/"
-    }
+      abstract: "https://www.linkedin.com/in/philip-cervenjak/"
+    },
+    {
+      category: "others",
+      tabTitle: "Changyeol Lee",
+      name: "Changyeol Lee",
+      title: " PhD student",
+      affiliation: "Yonsei University.",
+      email: "changyeollee@yonsei.ac.kr ",
+      photo: "images/speakers/me.jpg",
+      type: "Invited Speaker",
+      abstract: "https://chang-yeol.github.io/"
+    },
+    {
+      category: "others",
+      tabTitle: "Rin Saito",
+      name: "Rin Saito",
+      title: " PhD student",
+      affiliation: "Tohoku University.",
+      email: "rin.saito@dc.tohoku.ac.jp",
+      photo: "images/speakers/_fix.jpg",
+      type: "Invited Speaker",
+      abstract: "https://srin728.github.io/"
+    },
   ];
 
   const categories = [
