@@ -118,6 +118,29 @@ function initSpeakers() {
       type: "Invited Speaker",
       abstract: "https://srin728.github.io/"
     },
+    {
+      category: "others",
+      tabTitle: "Mario Günzel",
+      name: "Mario Günzel",
+      title: "Postdoctoral Researcher",
+      affiliation: "Max-Planck Institute.",
+      email: "",
+      photo: "images/speakers/csm_profile_guenzel_4f59db872a.webp",
+      type: "Invited Speaker",
+      abstract: "https://daes.cs.tu-dortmund.de/staff/scientific-staff/dr-rer-nat-mario-guenzel/"
+    },
+    {
+      category: "plenary",
+      tabTitle: "Vincent Y. F. Tan",
+      name: "Vincent Y. F. Tan",
+      title: "Professor",
+      affiliation: "National University of Singapore.",
+      email: "vtan@nus.edu.sg",
+      photo: "images/speakers/vtan7.png",
+      type: "Invited Speaker",
+      abstract: "https://vyftan.github.io/"
+    },
+
   ];
 
   const categories = [
