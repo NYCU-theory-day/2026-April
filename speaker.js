@@ -30,7 +30,7 @@ function initSpeakers() {
       abstract: "https://www.kurims.kyoto-u.ac.jp/en/list/makino.html"
     },
     {
-      category: "others",
+      category: "postdoc",
       tabTitle: "Koustav Bhanja",
       name: "Koustav Bhanja",
       title: "Postdoctoral Researcher",
@@ -86,10 +86,10 @@ function initSpeakers() {
     },
     
     {
-      category: "others",
+      category: "postdoc",
       tabTitle: "Philip Cervenjak",
       name: "Philip Cervenjak",
-      title: " PhD Candidate",
+      title: "PhD",
       affiliation: "University of Melbourne.",
       email: " philip.cervenjak@unimelb.edu.au",
       photo: "images/speakers/1520389726397.jpg",
@@ -119,7 +119,7 @@ function initSpeakers() {
       abstract: "https://srin728.github.io/"
     },
     {
-      category: "others",
+      category: "postdoc",
       tabTitle: "Mario Günzel",
       name: "Mario Günzel",
       title: "Postdoctoral Researcher",
@@ -130,7 +130,7 @@ function initSpeakers() {
       abstract: "https://daes.cs.tu-dortmund.de/staff/scientific-staff/dr-rer-nat-mario-guenzel/"
     },
     {
-      category: "plenary",
+      category: "keynote",
       tabTitle: "Vincent Y. F. Tan",
       name: "Vincent Y. F. Tan",
       title: "Professor",
@@ -146,7 +146,8 @@ function initSpeakers() {
   const categories = [
     { key: "keynote", label: "Keynote Lectures" },
     { key: "plenary", label: "Invited Talks (I)" },
-    { key: "others", label: "Invited Talks (II)" }
+    { key: "postdoc", label: "Invited Talks (II)" },
+    { key: "others", label: "Invited Talks (III)" }
   ];
 
   let activeCategory = "keynote";
