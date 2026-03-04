@@ -14,23 +14,29 @@
 <main>
   
   <h1>Registration</h1>
-    <p>~ April 10, 2026 · NYCU Hsinchu Campus, Taiwan</p>
+  <p>NYCU Hsinchu Campus, Taiwan</p>
+
   <section>
-    <p class="tbd">
-      Registration is free for all NYCU students, but required for catering and scheduling purposes.
-Please complete the form below by the registration deadline to secure your spot.
-
-We also welcome voluntary donations or sponsorships to support the event, but these are entirely optional.
-Receipts can be provided electronically via email, or collected as a paper receipt on-site if preferred.
+    <p>
+      Registration is <strong>free of charge</strong> for all participants. 
+      To help us manage logistics and seating arrangements, please register by the deadline.
     </p>
-    
 
-    <!-- Google Form Placeholder -->
-     
+    <p>
+      <strong>Registration Deadline:</strong> April 10, 2026, 23:59
+    </p>
+
     <div class="registration-form">
       <a href="https://forms.gle/krySHno9R7pjFkfa6" target="_blank">
-        <button class="btn">Fill Registration Form</button>
+        <button class="btn">Register Online</button>
       </a>
+    </div>
+
+    <div class="notice-box">
+      <p>
+        <strong>Voluntary donations</strong> are welcome to support the event; 
+        receipts (electronic or paper) can be provided upon request.
+      </p>
     </div>
   </section>
   
@@ -41,25 +47,53 @@ Receipts can be provided electronically via email, or collected as a paper recei
 </footer>
 
 <style>
-  /* Quick style for the button */
+  /* 保持與你原始樣式一致 */
   .registration-form {
-    margin-top: 24px;
-    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: left;
   }
 
   .registration-form .btn {
-    background-color: var(--accent);
+    background-color: var(--accent, #2c3e50); /* 若變數失效則顯示深藍色 */
     color: white;
     border: none;
-    padding: 12px 24px;
+    padding: 12px 32px;
     font-size: 1em;
     border-radius: 6px;
     cursor: pointer;
     transition: background 0.2s;
+    font-weight: 500;
   }
 
   .registration-form .btn:hover {
     background-color: #1f3550;
+  }
+
+  /* 強化贊助資訊區塊 */
+  .notice-box {
+    margin-top: 48px; /* 增加與上方按鈕的距離 */
+    padding: 16px 20px;
+    background-color: #f8f9fa; /* 淺灰色背景 */
+    border-left: 4px solid var(--accent, #2c3e50); /* 左側強調邊線 */
+    border-radius: 4px;
+  }
+
+  .notice-box p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .notice-box strong {
+    color: #2c3e50;
+  }
+
+  .notice-box .icon {
+    margin-right: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
   }
 </style>
 
@@ -68,7 +102,6 @@ Receipts can be provided electronically via email, or collected as a paper recei
 <script src="page-loader.js"></script>
 <script src="speaker.js"></script>
 <script src="banner.js"></script>
-
 
 </div>
 
