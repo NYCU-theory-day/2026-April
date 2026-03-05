@@ -114,7 +114,7 @@ function initSpeakers() {
       title: " PhD Student",
       affiliation: "Tohoku University.",
       email: "rin.saito@dc.tohoku.ac.jp",
-      photo: "images/speakers/_fix.jpg",
+      photo: "images/speakers/fix.jpg",
       type: "Invited Speaker",
       abstract: "https://srin728.github.io/"
     },
