@@ -663,15 +663,34 @@ footer {
 }
 
 .speaker-title {
+  display: inline-block;
   font-weight: 600;
   color: #003366;
-  margin-bottom: 6px;
+  margin: 0 8px 6px 0;
+  vertical-align: baseline;
 }
 
 .speaker-affiliation {
   margin-bottom: 12px;
   color: #555;
   line-height: 1.5;
+}
+
+.speaker-expertise {
+  display: block;
+  margin-bottom: 12px;
+  color: #003366;
+  line-height: 1.5;
+}
+
+#speaker-affiliation {
+  display: inline-block;
+  margin-bottom: 6px;
+  vertical-align: baseline;
+}
+
+#speaker-expertise {
+  display: block;
 }
 
 .speaker-email {

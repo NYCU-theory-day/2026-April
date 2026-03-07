@@ -16,6 +16,7 @@ function initSpeakers() {
       email: "heekap@postech.ac.kr",
       photo: "images/speakers/heekap.png",
       type: "Keynote Speaker",
+      expertise: "Algorithms and Data structures / AI Algorithms and Machine Learning / Optimization / Computational Geometry",
       abstract: "https://heekap.github.io/"
     },
     {
@@ -27,6 +28,7 @@ function initSpeakers() {
       email: "add @kurims.kyoto-u.ac.jp",
       photo: "images/speakers/makino.jpg",
       type: "Keynote Speaker",
+      expertise: "Discrete mathematics / Optimization / Algorithm theory",
       abstract: "https://www.kurims.kyoto-u.ac.jp/en/list/makino.html"
     },
     {
@@ -38,6 +40,7 @@ function initSpeakers() {
       email: "koustav.bhanja@weizmann.ac.il ",
       photo: "images/speakers/unnamed.jpg",
       type: "Invited Speaker",
+      expertise: "Sensitivity Oracles (Fault-tolerant data structures) and efficient Dynamic Algorithms / Data structures and Algorithms",
       abstract: "https://sites.google.com/view/koustav-bhanja/home"
     },
     {
@@ -49,6 +52,7 @@ function initSpeakers() {
       email: "michelle.doering@hpi.de ",
       photo: "images/speakers/csm_michelle_doering_ce43ac8db1.jpg",
       type: "Invited Speaker",
+      expertise: "Temporal Graphs / Time-Varying Dynamic Networks",
       abstract: "https://michelledoering.notion.site/"
     },
     {
@@ -60,6 +64,7 @@ function initSpeakers() {
       email: "michael.zlatin@pomona.edu",
       photo: "images/speakers/mik_pic.png",
       type: "Invited Speaker",
+      expertise: "Approximation Algorithms / Online Submodular Assignment",
       abstract: "https://mzlatin.github.io/"
     },
     {
@@ -71,6 +76,7 @@ function initSpeakers() {
       email: "	sehuang@csie.ntu.edu.tw",
       photo: "images/speakers/照片-黃上恩-1.jpg",
       type: "Invited Speaker",
+      expertise: "Dynamic Graph Data Structures and Algorithms / Distributed Graph Algorithms",
       abstract: "	https://tmt514.github.io/"
     },
     {
@@ -82,6 +88,7 @@ function initSpeakers() {
       email: "",
       photo: "images/speakers/profilepic-cropped.jpg",
       type: "Invited Speaker",
+      expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
       abstract: "https://williamumboh.com/"
     },
     
@@ -94,6 +101,7 @@ function initSpeakers() {
       email: " philip.cervenjak@unimelb.edu.au",
       photo: "images/speakers/1520389726397.jpg",
       type: "Invited Speaker",
+      expertise: "Submodular Optimization and Algorithms",
       abstract: "https://www.linkedin.com/in/philip-cervenjak/"
     },
     {
@@ -105,6 +113,7 @@ function initSpeakers() {
       email: "changyeollee@yonsei.ac.kr ",
       photo: "images/speakers/me.jpg",
       type: "Invited Speaker",
+      expertise: "Approximation Algorithms / Online Algorithms / Learning-augmented Algorithms / Combinatorial Optimization",
       abstract: "https://chang-yeol.github.io/"
     },
     {
@@ -116,6 +125,7 @@ function initSpeakers() {
       email: "rin.saito@dc.tohoku.ac.jp",
       photo: "images/speakers/fix.jpg",
       type: "Invited Speaker",
+      expertise: "Graph Algorithms / Parameterized Complexity / Combinatorial Reconfiguration",
       abstract: "https://srin728.github.io/"
     },
     {
@@ -127,6 +137,7 @@ function initSpeakers() {
       email: "",
       photo: "images/speakers/csm_profile_guenzel_4f59db872a.webp",
       type: "Invited Speaker",
+      expertise: "Real-Time System Scheduling / Embedded Systems / Schedulability Tests / Scheduling Algorithms",
       abstract: "https://daes.cs.tu-dortmund.de/staff/scientific-staff/dr-rer-nat-mario-guenzel/"
     },
     {
@@ -138,6 +149,7 @@ function initSpeakers() {
       email: "vtan@nus.edu.sg",
       photo: "images/speakers/vtan7.png",
       type: "Invited Speaker",
+      expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
       abstract: "https://vyftan.github.io/"
     },
 
@@ -214,15 +226,28 @@ function initSpeakers() {
   }
 
   function renderEmptySpeaker() {
-    document.getElementById("speaker-photo").src = "https://via.placeholder.com/300x400";
-    document.getElementById("speaker-name").textContent = "No speakers yet";
-    document.getElementById("speaker-title").textContent = "";
-    document.getElementById("speaker-affiliation").textContent = "";
-    document.getElementById("speaker-email").textContent = "";
-    document.getElementById("speaker-email").href = "#";
-    document.getElementById("speaker-type").textContent =
-      activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
-    document.getElementById("speaker-abstract").textContent = "";
+    const photo = document.getElementById("speaker-photo");
+    const name = document.getElementById("speaker-name");
+    const title = document.getElementById("speaker-title");
+    const affiliation = document.getElementById("speaker-affiliation");
+    const expertise = document.getElementById("speaker-expertise");
+    const email = document.getElementById("speaker-email");
+    const type = document.getElementById("speaker-type");
+    const abstract = document.getElementById("speaker-abstract");
+
+    if (photo) photo.src = "https://via.placeholder.com/300x400";
+    if (name) name.textContent = "No speakers yet";
+    if (title) title.textContent = "";
+    if (affiliation) affiliation.textContent = "";
+    if (expertise) expertise.textContent = "Expertise: TBA";
+    if (email) {
+      email.textContent = "";
+      email.href = "#";
+    }
+    if (type) {
+      type.textContent = activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
+    }
+    if (abstract) abstract.textContent = "";
   }
 
   function selectSpeaker(index) {
@@ -238,14 +263,26 @@ function initSpeakers() {
     );
     document.querySelectorAll(".speaker-tab")[index].classList.add("active");
 
-    document.getElementById("speaker-photo").src = speaker.photo;
-    document.getElementById("speaker-name").textContent = speaker.name;
-    document.getElementById("speaker-title").textContent = speaker.title;
-    document.getElementById("speaker-affiliation").textContent = speaker.affiliation;
-    document.getElementById("speaker-email").textContent = speaker.email;
-    document.getElementById("speaker-email").href = "mailto:" + speaker.email;
-    document.getElementById("speaker-type").textContent = speaker.type;
-    document.getElementById("speaker-abstract").textContent = speaker.abstract;
+    const photo = document.getElementById("speaker-photo");
+    const name = document.getElementById("speaker-name");
+    const title = document.getElementById("speaker-title");
+    const affiliation = document.getElementById("speaker-affiliation");
+    const expertise = document.getElementById("speaker-expertise");
+    const email = document.getElementById("speaker-email");
+    const type = document.getElementById("speaker-type");
+    const abstract = document.getElementById("speaker-abstract");
+
+    if (photo) photo.src = speaker.photo;
+    if (name) name.textContent = speaker.name;
+    if (title) title.textContent = speaker.title;
+    if (affiliation) affiliation.textContent = speaker.affiliation;
+    if (expertise) expertise.textContent = `${speaker.expertise || "TBA"}`;
+    if (email) {
+      email.textContent = speaker.email;
+      email.href = "mailto:" + speaker.email;
+    }
+    if (type) type.textContent = speaker.type;
+    if (abstract) abstract.textContent = speaker.abstract;
   }
 
   renderCategoryTabs();
