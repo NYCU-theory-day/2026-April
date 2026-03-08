@@ -722,6 +722,14 @@ footer {
   margin: 0;
 }
 
+.speaker-abstract-row h3 {
+  margin: 16px 0 8px;
+}
+
+.speaker-abstract-row p {
+  margin: 0;
+}
+
 .speaker-abstract-tba {
   display: none;
   margin-top: 25px;
