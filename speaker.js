@@ -33,7 +33,7 @@ function initSpeakers() {
       abstract: "Enumeration is one of the fundamental topics in discrete mathematics. From a complexity-theoretic perspective, three major open problems in enumeration remain unresolved: the vertex enumeration problem for polytopes, the monotone dualization problem for Boolean functions, and the Horn transformation problem. All of these problems are closely related to decision problems concerning primal and dual representations. In this talk, we provide an overview of their current status."
     },
     {
-      category: "postdoc",
+      category: "plenary",
       tabTitle: "Koustav Bhanja",
       name: "Koustav Bhanja",
       title: "Postdoctoral Researcher",
@@ -92,19 +92,6 @@ function initSpeakers() {
       expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
       abstract: ""
     },
-    
-    {
-      category: "postdoc",
-      tabTitle: "Philip Cervenjak",
-      name: "Philip Cervenjak",
-      title: "PhD",
-      affiliation: "University of Melbourne.",
-      email: " philip.cervenjak@unimelb.edu.au",
-      photo: "images/speakers/1520389726397.jpg",
-      type: "Invited Speaker",
-      expertise: "Submodular Optimization and Algorithms",
-      abstract: ""
-    },
     {
       category: "others",
       tabTitle: "Changyeol Lee",
@@ -130,7 +117,7 @@ function initSpeakers() {
       abstract: ""
     },
     {
-      category: "postdoc",
+      category: "plenary",
       tabTitle: "Mario Günzel",
       name: "Mario Günzel",
       title: "Postdoctoral Researcher",
@@ -154,13 +141,25 @@ function initSpeakers() {
       abstract: ""
     },
 
+    {
+      category: "panel",
+      tabTitle: "Vincent Y. F. Tan",
+      name: "Vincent Y. F. Tan",
+      title: "Professor",
+      affiliation: "National University of Singapore.",
+      email: "vtan@nus.edu.sg",
+      photo: "images/speakers/vtan7.png",
+      type: "Invited Speaker",
+      expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
+      abstract: ""
+    },
   ];
 
   const categories = [
     { key: "keynote", label: "Keynote Lectures" },
     { key: "plenary", label: "Invited Talks (I)" },
-    { key: "postdoc", label: "Invited Talks (II)" },
-    { key: "others", label: "Invited Talks (III)" }
+    { key: "others", label: "Invited Talks (II)" },
+    { key: "panel", label: "Lunch Panels" }
   ];
 
   let activeCategory = "keynote";
