@@ -33,7 +33,7 @@ function initSpeakers() {
       abstract: "Enumeration is one of the fundamental topics in discrete mathematics. From a complexity-theoretic perspective, three major open problems in enumeration remain unresolved: the vertex enumeration problem for polytopes, the monotone dualization problem for Boolean functions, and the Horn transformation problem. All of these problems are closely related to decision problems concerning primal and dual representations. In this talk, we provide an overview of their current status."
     },
     {
-      category: "postdoc",
+      category: "plenary",
       tabTitle: "Koustav Bhanja",
       name: "Koustav Bhanja",
       title: "Postdoctoral Researcher",
@@ -92,19 +92,6 @@ function initSpeakers() {
       expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
       abstract: ""
     },
-    
-    {
-      category: "postdoc",
-      tabTitle: "Philip Cervenjak",
-      name: "Philip Cervenjak",
-      title: "PhD",
-      affiliation: "University of Melbourne.",
-      email: " philip.cervenjak@unimelb.edu.au",
-      photo: "images/speakers/1520389726397.jpg",
-      type: "Invited Speaker",
-      expertise: "Submodular Optimization and Algorithms",
-      abstract: ""
-    },
     {
       category: "others",
       tabTitle: "Changyeol Lee",
@@ -130,7 +117,7 @@ function initSpeakers() {
       abstract: ""
     },
     {
-      category: "postdoc",
+      category: "plenary",
       tabTitle: "Mario Günzel",
       name: "Mario Günzel",
       title: "Postdoctoral Researcher",
@@ -154,13 +141,73 @@ function initSpeakers() {
       abstract: ""
     },
 
+    {
+      category: "others",
+      tabTitle: "Nadym Mallek",
+      name: "Nadym Mallek",
+      title: "PhD Student",
+      affiliation: "Hasso Plattner Institute.",
+      email: "nadym.mallek@hpi.de",
+      photo: "images/speakers/csm_Nadym_Mallek_679815004c.jpg",
+      type: "Invited Speaker",
+      expertise: "Approximation Algorithms / Structural Algorithmics for Network Cut and Partitioning Problems",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yi-Ting Chen",
+      name: "Yi-Ting Chen",
+      title: "Associate Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "ychen@cs.nycu.edu.tw",
+      photo: "images/speakers/Cjz6vor1i5qHyZjEjaatROOaMOR9EgVwP2CN3c2o.png",
+      type: "Invited Speaker",
+      expertise: "Human-centered Physical AI / Intelligent Driving Systems / Assistive Robotics / Computer Vision / Machine Learning",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Ting-Jung Chang",
+      name: "Ting-Jung Chang",
+      title: "Assitant Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: " tingchang@cs.nycu.edu.tw",
+      photo: "images/speakers/R61YssxjL04WMWujNrLbIE6FqeIMVIlf9IJ95Q7Z.png",
+      type: "Invited Speaker",
+      expertise: "Computer Architecture / Digital VLSI Design",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yung-Ju Stanley Chang",
+      name: "Yung-Ju Stanley Chang",
+      title: "Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "armuro@nycu.edu.tw",
+      photo: "images/speakers/fTQOrGKfJ7SQBteW5Db6nU5my8dpmMKYVmbp7Osz.png",
+      type: "Invited Speaker",
+      expertise: "Human Computer Interaction / Context-Aware Computing / Information Behavior",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yu-Chun Yen",
+      name: "Yu-Chun Yen",
+      title: "Assitant Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "yyen@cs.nycu.edu.tw",
+      photo: "images/speakers/TxnBkEZOOQ1980JVAO9QD3U4Lg1cIzuvZ6upLWgE.png",
+      type: "Invited Speaker",
+      expertise: "Collective Intelligence / Creativity Support / Computer-supported Communication / Human-AI Collaboration",
+      abstract: ""
+    },
   ];
 
   const categories = [
     { key: "keynote", label: "Keynote Lectures" },
     { key: "plenary", label: "Invited Talks (I)" },
-    { key: "postdoc", label: "Invited Talks (II)" },
-    { key: "others", label: "Invited Talks (III)" }
+    { key: "others", label: "Invited Talks (II)" },
+    { key: "panel", label: "Lunch Panels" }
   ];
 
   let activeCategory = "keynote";
