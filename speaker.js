@@ -153,6 +153,66 @@ function initSpeakers() {
       expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
       abstract: ""
     },
+    {
+      category: "others",
+      tabTitle: "Nadym Mallek",
+      name: "Nadym Mallek",
+      title: "PhD Student",
+      affiliation: "Hasso Plattner Institute.",
+      email: "nadym.mallek@hpi.de",
+      photo: "images/speakers/csm_Nadym_Mallek_679815004c.jpg",
+      type: "Invited Speaker",
+      expertise: "",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yi-Ting Chen",
+      name: "Yi-Ting Chen",
+      title: "Associate Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "ychen@cs.nycu.edu.tw",
+      photo: "images/speakers/Cjz6vor1i5qHyZjEjaatROOaMOR9EgVwP2CN3c2o.png",
+      type: "Invited Speaker",
+      expertise: "",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Ting-Jung Chang",
+      name: "Ting-Jung Chang",
+      title: "Assitant Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: " tingchang@cs.nycu.edu.tw",
+      photo: "images/speakers/R61YssxjL04WMWujNrLbIE6FqeIMVIlf9IJ95Q7Z.png",
+      type: "Invited Speaker",
+      expertise: "",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yung-Ju Stanley Chang",
+      name: "Yung-Ju Stanley Chang",
+      title: "Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "armuro@nycu.edu.tw",
+      photo: "images/speakers/fTQOrGKfJ7SQBteW5Db6nU5my8dpmMKYVmbp7Osz.png",
+      type: "Invited Speaker",
+      expertise: "",
+      abstract: ""
+    },
+    {
+      category: "panel",
+      tabTitle: "Yu-Chun Yen",
+      name: "Yu-Chun Yen",
+      title: "Assitant Professor",
+      affiliation: "Department of Computer Science, NYCU.",
+      email: "yyen@cs.nycu.edu.tw",
+      photo: "images/speakers/TxnBkEZOOQ1980JVAO9QD3U4Lg1cIzuvZ6upLWgE.png",
+      type: "Invited Speaker",
+      expertise: "",
+      abstract: ""
+    },
   ];
 
   const categories = [
