@@ -17,7 +17,7 @@ function initSpeakers() {
       photo: "images/speakers/heekap.png",
       type: "Keynote Speaker",
       expertise: "Algorithms and Data structures / AI Algorithms and Machine Learning / Optimization / Computational Geometry",
-      abstract: "https://heekap.github.io/"
+      abstract: ""
     },
     {
       category: "keynote",
@@ -29,7 +29,8 @@ function initSpeakers() {
       photo: "images/speakers/makino.jpg",
       type: "Keynote Speaker",
       expertise: "Discrete mathematics / Optimization / Algorithm theory",
-      abstract: "https://www.kurims.kyoto-u.ac.jp/en/list/makino.html"
+      talkTitle: "Primal and Dual Representations",
+      abstract: "Enumeration is one of the fundamental topics in discrete mathematics. From a complexity-theoretic perspective, three major open problems in enumeration remain unresolved: the vertex enumeration problem for polytopes, the monotone dualization problem for Boolean functions, and the Horn transformation problem. All of these problems are closely related to decision problems concerning primal and dual representations. In this talk, we provide an overview of their current status."
     },
     {
       category: "postdoc",
@@ -41,7 +42,7 @@ function initSpeakers() {
       photo: "images/speakers/unnamed.jpg",
       type: "Invited Speaker",
       expertise: "Sensitivity Oracles (Fault-tolerant data structures) and efficient Dynamic Algorithms / Data structures and Algorithms",
-      abstract: "https://sites.google.com/view/koustav-bhanja/home"
+      abstract: ""
     },
     {
       category: "others",
@@ -53,7 +54,7 @@ function initSpeakers() {
       photo: "images/speakers/csm_michelle_doering_ce43ac8db1.jpg",
       type: "Invited Speaker",
       expertise: "Temporal Graphs / Time-Varying Dynamic Networks",
-      abstract: "https://michelledoering.notion.site/"
+      abstract: ""
     },
     {
       category: "plenary",
@@ -65,7 +66,7 @@ function initSpeakers() {
       photo: "images/speakers/mik_pic.png",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Online Submodular Assignment",
-      abstract: "https://mzlatin.github.io/"
+      abstract: ""
     },
     {
       category: "plenary",
@@ -77,7 +78,7 @@ function initSpeakers() {
       photo: "images/speakers/照片-黃上恩-1.jpg",
       type: "Invited Speaker",
       expertise: "Dynamic Graph Data Structures and Algorithms / Distributed Graph Algorithms",
-      abstract: "	https://tmt514.github.io/"
+      abstract: ""
     },
     {
       category: "plenary",
@@ -89,7 +90,7 @@ function initSpeakers() {
       photo: "images/speakers/profilepic-cropped.jpg",
       type: "Invited Speaker",
       expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
-      abstract: "https://williamumboh.com/"
+      abstract: ""
     },
     
     {
@@ -102,7 +103,7 @@ function initSpeakers() {
       photo: "images/speakers/1520389726397.jpg",
       type: "Invited Speaker",
       expertise: "Submodular Optimization and Algorithms",
-      abstract: "https://www.linkedin.com/in/philip-cervenjak/"
+      abstract: ""
     },
     {
       category: "others",
@@ -114,7 +115,7 @@ function initSpeakers() {
       photo: "images/speakers/me.jpg",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Online Algorithms / Learning-augmented Algorithms / Combinatorial Optimization",
-      abstract: "https://chang-yeol.github.io/"
+      abstract: ""
     },
     {
       category: "others",
@@ -126,7 +127,7 @@ function initSpeakers() {
       photo: "images/speakers/fix.jpg",
       type: "Invited Speaker",
       expertise: "Graph Algorithms / Parameterized Complexity / Combinatorial Reconfiguration",
-      abstract: "https://srin728.github.io/"
+      abstract: ""
     },
     {
       category: "postdoc",
@@ -138,7 +139,7 @@ function initSpeakers() {
       photo: "images/speakers/csm_profile_guenzel_4f59db872a.webp",
       type: "Invited Speaker",
       expertise: "Real-Time System Scheduling / Embedded Systems / Schedulability Tests / Scheduling Algorithms",
-      abstract: "https://daes.cs.tu-dortmund.de/staff/scientific-staff/dr-rer-nat-mario-guenzel/"
+      abstract: ""
     },
     {
       category: "keynote",
@@ -150,7 +151,7 @@ function initSpeakers() {
       photo: "images/speakers/vtan7.png",
       type: "Invited Speaker",
       expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
-      abstract: "https://vyftan.github.io/"
+      abstract: ""
     },
 
   ];
@@ -233,7 +234,10 @@ function initSpeakers() {
     const expertise = document.getElementById("speaker-expertise");
     const email = document.getElementById("speaker-email");
     const type = document.getElementById("speaker-type");
+    const abstractBox = document.getElementById("speaker-abstract-box");
+    const abstractTitle = document.getElementById("speaker-abstract-title");
     const abstract = document.getElementById("speaker-abstract");
+    const abstractTba = document.getElementById("speaker-abstract-tba");
 
     if (photo) photo.src = "https://via.placeholder.com/300x400";
     if (name) name.textContent = "No speakers yet";
@@ -247,7 +251,13 @@ function initSpeakers() {
     if (type) {
       type.textContent = activeCategory.charAt(0).toUpperCase() + activeCategory.slice(1);
     }
+    if (abstractBox) abstractBox.style.display = "none";
+    if (abstractTitle) abstractTitle.textContent = "Biography / Title / Abstract";
     if (abstract) abstract.textContent = "";
+    if (abstractTba) {
+      abstractTba.textContent = "TBAA";
+      abstractTba.style.display = "block";
+    }
   }
 
   function selectSpeaker(index) {
@@ -270,6 +280,8 @@ function initSpeakers() {
     const expertise = document.getElementById("speaker-expertise");
     const email = document.getElementById("speaker-email");
     const type = document.getElementById("speaker-type");
+    const abstractBox = document.getElementById("speaker-abstract-box");
+    const talktitle = document.getElementById("speaker-talk-title");
     const abstract = document.getElementById("speaker-abstract");
 
     if (photo) photo.src = speaker.photo;
@@ -282,7 +294,10 @@ function initSpeakers() {
       email.href = "mailto:" + speaker.email;
     }
     if (type) type.textContent = speaker.type;
-    if (abstract) abstract.textContent = speaker.abstract;
+    const hasAbstract = typeof speaker.abstract === "string" && speaker.abstract.trim() !== "";
+    if (abstractBox) abstractBox.style.display = hasAbstract ? "block" : "none";
+    if (talktitle) talktitle.textContent = hasAbstract ? speaker.talkTitle : "";
+    if (abstract) abstract.textContent = hasAbstract ? speaker.abstract : "";
   }
 
   renderCategoryTabs();

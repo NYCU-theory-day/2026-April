@@ -704,11 +704,35 @@ footer {
 }
 
 .speaker-abstract-box {
-  display: none;
   margin-top: 25px;
   background: #f9f9f9;
   padding: 20px;
   border-left: 3px solid #003366;
   border-radius: 10px;
+}
+
+.speaker-talk-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.speaker-talk-title-row h3,
+.speaker-talk-title-row p {
+  margin: 0;
+}
+
+.speaker-abstract-row h3 {
+  margin: 16px 0 8px;
+}
+
+.speaker-abstract-row p {
+  margin: 0;
+}
+
+.speaker-abstract-tba {
+  display: none;
+  margin-top: 25px;
+  color: #555;
 }
 
