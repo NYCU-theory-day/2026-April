@@ -142,18 +142,6 @@ function initSpeakers() {
     },
 
     {
-      category: "panel",
-      tabTitle: "Vincent Y. F. Tan",
-      name: "Vincent Y. F. Tan",
-      title: "Professor",
-      affiliation: "National University of Singapore.",
-      email: "vtan@nus.edu.sg",
-      photo: "images/speakers/vtan7.png",
-      type: "Invited Speaker",
-      expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
-      abstract: ""
-    },
-    {
       category: "others",
       tabTitle: "Nadym Mallek",
       name: "Nadym Mallek",
@@ -162,7 +150,7 @@ function initSpeakers() {
       email: "nadym.mallek@hpi.de",
       photo: "images/speakers/csm_Nadym_Mallek_679815004c.jpg",
       type: "Invited Speaker",
-      expertise: "",
+      expertise: "Approximation Algorithms / Structural Algorithmics for Network Cut and Partitioning Problems",
       abstract: ""
     },
     {
@@ -174,7 +162,7 @@ function initSpeakers() {
       email: "ychen@cs.nycu.edu.tw",
       photo: "images/speakers/Cjz6vor1i5qHyZjEjaatROOaMOR9EgVwP2CN3c2o.png",
       type: "Invited Speaker",
-      expertise: "",
+      expertise: "Human-centered Physical AI / Intelligent Driving Systems / Assistive Robotics / Computer Vision / Machine Learning",
       abstract: ""
     },
     {
@@ -186,7 +174,7 @@ function initSpeakers() {
       email: " tingchang@cs.nycu.edu.tw",
       photo: "images/speakers/R61YssxjL04WMWujNrLbIE6FqeIMVIlf9IJ95Q7Z.png",
       type: "Invited Speaker",
-      expertise: "",
+      expertise: "Computer Architecture / Digital VLSI Design",
       abstract: ""
     },
     {
@@ -198,7 +186,7 @@ function initSpeakers() {
       email: "armuro@nycu.edu.tw",
       photo: "images/speakers/fTQOrGKfJ7SQBteW5Db6nU5my8dpmMKYVmbp7Osz.png",
       type: "Invited Speaker",
-      expertise: "",
+      expertise: "Human Computer Interaction / Context-Aware Computing / Information Behavior",
       abstract: ""
     },
     {
@@ -210,7 +198,7 @@ function initSpeakers() {
       email: "yyen@cs.nycu.edu.tw",
       photo: "images/speakers/TxnBkEZOOQ1980JVAO9QD3U4Lg1cIzuvZ6upLWgE.png",
       type: "Invited Speaker",
-      expertise: "",
+      expertise: "Collective Intelligence / Creativity Support / Computer-supported Communication / Human-AI Collaboration",
       abstract: ""
     },
   ];
