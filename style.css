@@ -719,6 +719,7 @@ footer {
 
 .speaker-talk-title-row h3,
 .speaker-talk-title-row p {
+  white-space: pre-wrap; /* respects newlines and wraps long lines */
   margin: 0;
 }
 
@@ -728,6 +729,11 @@ footer {
 
 .speaker-abstract-row p {
   margin: 0;
+}
+
+/* Preserve line breaks and spacing in abstracts */
+#speaker-abstract {
+  white-space: pre-wrap; /* respects newlines and wraps long lines */
 }
 
 .speaker-abstract-tba {

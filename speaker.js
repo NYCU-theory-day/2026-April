@@ -15,7 +15,7 @@ function initSpeakers() {
       affiliation: "Pohang University of Science and Technology (POSTECH)",
       email: "heekap@postech.ac.kr",
       photo: "images/speakers/heekap.png",
-      type: "Keynote Speaker",
+      type: "Keynote Speaker",  
       expertise: "Algorithms and Data structures / AI Algorithms and Machine Learning / Optimization / Computational Geometry",
       abstract: ""
     },
@@ -126,7 +126,13 @@ function initSpeakers() {
       photo: "images/speakers/csm_profile_guenzel_4f59db872a.webp",
       type: "Invited Speaker",
       expertise: "Real-Time System Scheduling / Embedded Systems / Schedulability Tests / Scheduling Algorithms",
-      abstract: ""
+      talkTitle: `The Shape of Time:       
+Analyzing End-to-End Latency Curves in Cyber-Physical Systems`,
+      abstract: `In safety-critical cyber-physical systems (such as autonomous driving pipelines) functionalities are often organized into so-called cause-effect chains. That is, a sequence of periodically activated tasks pass data from sensing to actuation. One fundamental question is: Given an external stimulus at time $t$, then how long does it take to react to that stimulus? In the literature, this timing behavior is formalized as *Reaction Time* $RT(t)$. 
+
+In this talk, the mathematical structure of this function under the well-established Logical Execution Time (LET) communication model is studied. One main observation is that $RT$ is piece-wise linear decreasing with jumps up in-between, giving the function a sawtooth-like shape. We demonstrate that it is possible to fully characterize $RT$ by an often times very small set of *anchor points* (i.e., the local maxima). Afterwards, we study how to derive these anchor points efficiently using *partitioned job chains*, which are built traversing the task graph from an intermediate task in both a forward and a backward manner. 
+
+The payoff of having the full shape is that this allows analyzing a rich portfolio of timing metrics directly from the anchor points: minimum, maximum, and average reaction time, throughput, weakly-hard constraints and longest consecutive exceedance intervals. For most of these metrics, this is the first analysis in the context of the LET communication model. `
     },
     {
       category: "keynote",
@@ -135,7 +141,7 @@ function initSpeakers() {
       title: "Professor",
       affiliation: "National University of Singapore.",
       email: "vtan@nus.edu.sg",
-      photo: "images/speakers/vtan7.png",
+      photo: "images/speakers/vtan9.jpg",
       type: "Invited Speaker",
       expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
       abstract: ""
