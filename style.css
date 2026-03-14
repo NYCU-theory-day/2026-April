@@ -742,3 +742,18 @@ footer {
   color: #555;
 }
 
+/* Sponsors */
+.sponsors {
+  margin-top: 16px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sponsor-logo {
+  max-height: 100px;
+  width: auto;
+  display: block;
+}
+
