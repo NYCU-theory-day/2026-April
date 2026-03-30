@@ -1,11 +1,19 @@
-day,time,title,title_en,abstract_en
-1,09:00–09:30,Opening Ceremony,Opening Ceremony,Welcome remarks by the organizers and introduction to the event.
-1,09:30–10:15,Keynote: Computational Complexity,Keynote: Computational Complexity,A deep dive into the latest results in computational complexity theory.
-1,10:15–10:30,Coffee Break,Coffee Break,
-1,10:30–11:15,Graph Algorithms,Graph Algorithms,Discussing advanced graph algorithms and their applications.
-1,11:15–12:00,Quantum Computing,Quantum Computing,Exploring theoretical aspects of quantum computing.
-2,09:00–09:30,Recap & Announcements,Recap & Announcements,Summary of Day 1 and announcements for Day 2.
-2,09:30–10:15,Machine Learning Theory,Machine Learning Theory,Theoretical foundations and recent research in ML.
-2,10:15–10:30,Coffee Break,Coffee Break,
-2,10:30–11:15,Cryptography,Cryptography,Modern cryptographic protocols and security proofs.
-2,11:15–12:00,Closing Remarks,Closing Remarks,Final thoughts and thanks to all participants.
+day,date,time,type,title,speaker
+1,4/21,13:30 – 14:30,keynote,Keynote Lecture,Vincent Y.F. Tan (National University of Singapore)
+2,4/22,09:00 – 10:00,keynote,Keynote Lecture - Primal and Dual Representations,Kazuhisa Makino (Kyoto University)
+2,4/22,10:00 – 10:20,break,Coffee Break,
+2,4/22,10:20 – 11:10,plenary,,Michael Zlatin (Pomona College)
+2,4/22,11:10 – 12:00,plenary,,Shang-En Huang (National Taiwan University)
+2,4/22,12:00 – 13:30,panel,Lunch Panel,Ting-Jung Chang (NYCU) and Yu-Chun Yen (NYCU)
+2,4/22,13:30 – 14:20,plenary,,Koustav Bhanja (Weizmann Institute)
+2,4/22,14:20 – 15:10,plenary,,Michelle Döring (Hasso Plattner Institute)
+2,4/22,15:10 – 15:30,break,Coffee Break,
+2,4/22,15:30 – 16:20,plenary,Handling LP-Rounding for Hierarchical Clustering and Fitting Distances by Ultrametrics,Changyeol Lee (Yonsei University)
+2,4/22,16:20 – 17:10,plenary,Graph Algorithmic Developments in Combinatorial Reconfiguration,Rin Saito (Tohoku University)
+3,4/23,09:00 – 10:00,keynote,Keynote Lecture,Hee-Kap Ahn (POSTECH)
+3,4/23,10:00 – 10:20,break,Coffee Break,
+3,4/23,10:20 – 11:10,plenary,,William Umboh (University of Melbourne)
+3,4/23,11:10 – 12:00,plenary,The Shape of Time: Analyzing End-to-End Latency Curves in Cyber-Physical Systems,Mario Günzel (Max-Planck Institute)
+3,4/23,12:00 – 13:30,panel,Lunch Panel,Yung-Ju Chang (NYCU) and Yi-Ting Chen (NYCU)
+3,4/23,13:30 – 14:20,plenary,,Nadym Mallek (Hasso Plattner Institute)
+3,4/23,16:00 - 18:00,break,Group Excursion

@@ -102,7 +102,17 @@ function initSpeakers() {
       photo: "images/speakers/me.jpg",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Online Algorithms / Learning-augmented Algorithms / Combinatorial Optimization",
-      abstract: ""
+      talkTitle: "Handling LP-Rounding for Hierarchical Clustering and Fitting Distances by Ultrametrics",
+      abstract: `We consider the classic correlation clustering problem in the hierarchical setting. Given a complete graph G=(V,E) and ℓ layers of input information, where the input of each layer consists of a nonnegative weight and a labeling of the edges with either + or -, this problem seeks to compute for each layer a partition of V such that the partition for any non-top layer subdivides the partition in the upper-layer and the weighted number of disagreements over the layers is minimized.
+
+Hierarchical correlation clustering is a natural formulation of the classic problem of fitting distances by ultrametrics, which is further known as numerical taxonomy in the literature. While single-layer correlation clustering received wide attention since it was introduced and major progress evolved in the past three years, few is known for this problem in the hierarchical setting. The lack of understanding and adequate tools is reflected in the large approximation ratio known for this problem originating from 2021.
+
+In this work we make both conceptual and technical contributions towards the hierarchical clustering problem. We present a simple paradigm that greatly facilitates LP-rounding in hierarchical clustering, illustrated with an algorithm providing a significantly improved approximation guarantee of 25.7846 for the hierarchical correlation clustering problem.
+
+Our techniques reveal surprising new properties of the formulation presented and subsequently used in previous works for hierarchical clustering over the past two decades. This provides an interpretation on the core problem in hierarchical clustering as the problem of finding cuts with prescribed properties regarding average distances.
+
+We further illustrate this perspective by showing that a direct application of the techniques gives a simple alternative to the state-of-the-art result for the ultrametric violation distance problem.
+`
     },
     {
       category: "others",
@@ -114,7 +124,8 @@ function initSpeakers() {
       photo: "images/speakers/fix.jpg",
       type: "Invited Speaker",
       expertise: "Graph Algorithms / Parameterized Complexity / Combinatorial Reconfiguration",
-      abstract: ""
+      talkTitle: "Graph Algorithmic Developments in Combinatorial Reconfiguration",
+      abstract: `While many algorithmic studies often focus on finding a single feasible solution, combinatorial reconfiguration explores the underlying structure of the entire solution space. It investigates whether one solution can be transformed into another through a sequence of small valid changes. In this talk, I will provide an overview of the fundamental concepts and results in this rapidly evolving field. I will then present our recent algorithmic findings, specifically focusing on the reconfiguration of vertex colorings (ISAAC 2025) and edge-disjoint spanning trees (ISAAC 2024). Finally, I will discuss other recent advances and outline future research directions.`
     },
     {
       category: "plenary",
@@ -151,12 +162,24 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
       category: "others",
       tabTitle: "Nadym Mallek",
       name: "Nadym Mallek",
-      title: "PhD Student",
+      title: "PhD Graduate",
       affiliation: "Hasso Plattner Institute.",
       email: "nadym.mallek@hpi.de",
       photo: "images/speakers/csm_Nadym_Mallek_679815004c.jpg",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Structural Algorithmics for Network Cut and Partitioning Problems",
+      abstract: ""
+    },
+    {
+      category: "others",
+      tabTitle: "Philip Cervenjak",
+      name: "Philip Cervenjak",
+      title: "PhD Graduate",
+      affiliation: "University of Melbourne.",
+      email: "",
+      photo: "images/speakers/1520389726397.jpg",
+      type: "Invited Speaker",
+      expertise: "Combinatorial Optimization / Approximation Algorithms / Beyond-Worst-Case Analysis of Algorithms",
       abstract: ""
     },
     {

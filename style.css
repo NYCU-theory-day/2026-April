@@ -746,14 +746,142 @@ footer {
 .sponsors {
   margin-top: 16px;
   display: flex;
-  gap: 18px;
+  gap: 48px; /* increased horizontal space between logos */
   align-items: center;
   flex-wrap: wrap;
 }
 
 .sponsor-logo {
-  max-height: 100px;
+  max-height: 40px; /* smaller, appropriate logo size */
   width: auto;
   display: block;
+}
+
+@media (max-width: 640px) {
+  .sponsors { gap: 20px; }
+  .sponsor-logo { max-height: 32px; }
+}
+
+/* Schedule grid (multi-day) */
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.day-column {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.day-header {
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.day-column .talk { display: grid; grid-template-columns: 80px 1fr; column-gap: 12px; padding: 10px 6px; border-bottom: 1px dashed #eee; }
+.day-column .talk:last-child { border-bottom: none; }
+.day-column .time { font-weight: 600; color: var(--accent); }
+.day-column .title { font-weight: 600; cursor: pointer; }
+.day-column .abstract { display: none; grid-column: 1 / -1; margin-top: 8px; }
+.day-column .talk.open .abstract { display: block; }
+
+@media (max-width: 1000px) {
+  .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .schedule-grid { grid-template-columns: 1fr; }
+}
+
+/* Day tabs and per-day view */
+.day-tabs { display:flex; gap:12px; margin-bottom: 18px; }
+.day-tab {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.day-tab.active,
+.day-tab:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.schedule-day { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+.schedule-day .talk { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 10px 6px; border-bottom: 1px dashed #eee; align-items: start; }
+.schedule-day .talk:last-child { border-bottom: none; }
+.schedule-day .time { font-weight: 600; color: var(--accent); }
+.schedule-day .title { font-weight: 600; cursor: pointer; }
+.schedule-day .abstract { display: none; grid-column: 1 / -1; margin-top: 8px; }
+.schedule-day .talk.open .abstract { display: block; }
+
+@media (max-width: 640px) {
+  .day-tabs { overflow-x: auto; }
+}
+
+/* visual separator placed after the day header */
+.day-separator {
+  height: 1px;
+  background: var(--border);
+  margin: 10px 0 14px;
+  width: 100%;
+}
+
+/* highlight plenary talks */
+.talk.plenary {
+  background: #e8f4ff; /* light blue */
+  border-radius: 6px;
+}
+
+.talk.plenary .time {
+  color: #0b4f8a;
+}
+
+/* highlight keynote talks */
+.talk.keynote {
+  background: #e8ffec; /* light green */
+  border-radius: 6px;
+}
+
+.talk.keynote .time {
+  color: #0b5a2b; /* darker green for better contrast */
+}
+
+.talk.keynote .title,
+.talk.keynote .speaker {
+  color: #0b5a2b;
+}
+
+/* highlight break rows */
+.talk.break {
+  background: #F5F5F5; /* very light grey (whitesmoke) */
+  border-radius: 6px;
+}
+
+.talk.break .time {
+  color: #333333; /* darker grey for contrast */
+}
+
+.talk.break .title,
+.talk.break .speaker {
+  color: #333333;
+}
+
+/* panel rows: light yellow */
+.talk.panel {
+  background: #fff9d6; /* light yellow */
+  border-radius: 6px;
+}
+
+.talk.panel .time {
+  color: #6b4f00; /* warm tone for contrast */
+}
+
+.talk.panel .title,
+.talk.panel .speaker {
+  color: #6b4f00;
 }
 

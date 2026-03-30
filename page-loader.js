@@ -46,10 +46,74 @@
         
         // Replace content smoothly
         if (newMain && currentMain) {
-          currentMain.innerHTML = newMain.innerHTML;
-          if (typeof initSpeakers === "function") {
-            initSpeakers();
-          }
+          // Strip <script> tags from the fetched fragment and insert the
+          // remaining HTML; scripts will be appended and executed explicitly.
+          const temp = document.createElement('div');
+          temp.innerHTML = newMain.innerHTML;
+          temp.querySelectorAll('script').forEach(s => s.remove());
+          currentMain.innerHTML = temp.innerHTML;
+          // Execute any scripts present in the loaded main (they don't run when inserted via innerHTML)
+          const scripts = newMain.querySelectorAll('script');
+          // create a base URL for resolving script src relative to the fetched page
+          const baseForNewDoc = window.location.origin.replace(/\/$/, '') + '/' + String(pageName).replace(/^\//, '');
+          const scriptPromises = [];
+          scripts.forEach(s => {
+            const src = s.getAttribute('src');
+            if (src) {
+              // resolve relative src against the fetched page's path to avoid wrong relative resolution
+              let resolvedSrc;
+              try {
+                resolvedSrc = new URL(src, baseForNewDoc).href;
+              } catch (e) {
+                resolvedSrc = src; // fallback
+              }
+
+              // avoid loading duplicates
+              const exists = Array.from(document.scripts).some(ds => {
+                const dsSrc = ds.getAttribute('src') || ds.src || '';
+                return dsSrc === resolvedSrc || dsSrc.endsWith('/' + src) || dsSrc === src;
+              });
+              if (!exists) {
+                const scr = document.createElement('script');
+                scr.src = resolvedSrc;
+                scr.async = false;
+                const p = new Promise((resolve, reject) => {
+                  scr.onload = () => resolve(resolvedSrc);
+                  scr.onerror = (e) => reject(new Error('Failed to load ' + resolvedSrc));
+                });
+                scriptPromises.push(p);
+                document.body.appendChild(scr);
+              }
+            } else {
+              // inline script -> evaluate immediately
+              try {
+                const code = s.textContent || s.innerText || '';
+                if (code.trim()) {
+                  const scr = document.createElement('script');
+                  scr.text = code;
+                  document.body.appendChild(scr);
+                }
+              } catch (err) {
+                console.error('Error evaluating inline script from loaded page', err);
+              }
+            }
+          });
+
+          // Wait for any external scripts appended from the fragment to load,
+          // then run any page-specific initializers if present.
+          Promise.all(scriptPromises).then(() => {
+            if (typeof initSchedule === 'function') {
+              try { initSchedule(); } catch (e) { console.error('initSchedule error', e); }
+            }
+            if (typeof initSpeakers === 'function') {
+              try { initSpeakers(); } catch (e) { console.error('initSpeakers error', e); }
+            }
+          }).catch(err => {
+            console.error('Error loading scripts from page fragment', err);
+            // best-effort: still attempt initialization
+            if (typeof initSchedule === 'function') try { initSchedule(); } catch(e){}
+            if (typeof initSpeakers === 'function') try { initSpeakers(); } catch(e){}
+          });
         }
         
         if (newFooter && currentFooter) {
@@ -153,6 +217,9 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (typeof initSpeakers === "function") {
       initSpeakers();
+    }
+    if (typeof initSchedule === "function") {
+      initSchedule();
     }
   });
 
