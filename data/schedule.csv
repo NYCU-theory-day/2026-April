@@ -1,1 +1,19 @@
 day,date,time,type,title,speaker
+1,4/21,TBA,keynote,Keynote Lecture,Vincent Y.F. Tan (National University of Singapore)
+2,4/22,09:00 – 10:00,keynote,Keynote Lecture - Primal and Dual Representations,Kazuhisa Makino (Kyoto University)
+2,4/22,10:00 – 10:20,break,Coffee Break,
+2,4/22,10:20 – 11:10,plenary,,Michael Zlatin (Pomona College)
+2,4/22,11:10 – 12:00,plenary,,Shang-En Huang (National Taiwan University)
+2,4/22,12:00 – 13:30,panel,Lunch Panel,Ting-Jung Chang (NYCU) and Yu-Chun Yen (NYCU)
+2,4/22,13:30 – 14:20,plenary,,Koustav Bhanja (Weizmann Institute)
+2,4/22,14:20 – 15:10,plenary,,Michelle Döring (Hasso Plattner Institute)
+2,4/22,15:10 – 15:30,break,Coffee Break,
+2,4/22,15:30 – 16:20,plenary,Handling LP-Rounding for Hierarchical Clustering and Fitting Distances by Ultrametrics,Changyeol Lee (Yonsei University)
+2,4/22,16:20 – 17:10,plenary,Graph Algorithmic Developments in Combinatorial Reconfiguration,Rin Saito (Tohoku University)
+3,4/23,09:00 – 10:00,keynote,Keynote Lecture,Hee-Kap Ahn (POSTECH)
+3,4/23,10:00 – 10:20,break,Coffee Break,
+3,4/23,10:20 – 11:10,plenary,,William Umboh (University of Melbourne)
+3,4/23,11:10 – 12:00,plenary,The Shape of Time: Analyzing End-to-End Latency Curves in Cyber-Physical Systems,Mario Günzel (Max-Planck Institute)
+3,4/23,12:00 – 13:30,panel,Lunch Panel,Yung-Ju Chang (NYCU) and Yi-Ting Chen (NYCU)
+3,4/23,13:30 – 14:20,plenary,,Nadym Mallek (Hasso Plattner Institute)
+3,4/23,16:00 - 18:00,break,Group Excursion
