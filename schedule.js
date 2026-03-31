@@ -39,7 +39,7 @@ function initSchedule() {
   }
   // If we already fetched data, just re-render into current DOM
   if (scheduleData && scheduleData.length > 0) {
-    days = Array.from(new Set(scheduleData.map(s => s.day))).sort((a,b)=>a-b);
+    days = Array.from(new Set(scheduleData.map(s => String(s.day || '').trim()).filter(Boolean))).sort((a,b)=> (Number(a) || 0) - (Number(b) || 0));
     renderDayTabs();
     // try to preserve selected tab
     const activeTab = document.querySelector('.day-tab.active');
@@ -59,12 +59,15 @@ function initSchedule() {
   fetch(CSV_URL)
     .then(res => {
       console.log('initSchedule: fetch response', res.status, res.url);
+      if (!res.ok) {
+        throw new Error('CSV fetch failed: ' + res.status);
+      }
       return res.text();
     })
     .then(text => {
       scheduleData = parseCSV(text);
       console.log('schedule CSV parsed — rows:', scheduleData.length);
-      days = Array.from(new Set(scheduleData.map(s => s.day))).sort((a,b)=>a-b);
+      days = Array.from(new Set(scheduleData.map(s => String(s.day || '').trim()).filter(Boolean))).sort((a,b)=> (Number(a) || 0) - (Number(b) || 0));
       renderDayTabs();
       if (days.length) renderDay(days[0]);
       _scheduleInitialized = true;
@@ -81,7 +84,8 @@ function parseCSV(text) {
   // split into non-empty lines and normalize header names
   const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
   if (lines.length === 0) { console.warn('parseCSV: no lines found in CSV'); return []; }
-  const headers = lines.shift().split(",").map(h => h.trim());
+  const rawHeaders = lines.shift().split(",").map(h => h.trim());
+  const headers = rawHeaders.map(h => String(h).toLowerCase());
   console.log('parseCSV: headers=', headers);
 
   return lines.map(line => {
@@ -128,7 +132,7 @@ function renderDay(day) {
   const header = document.createElement('div');
   header.className = 'day-header';
 
-  const dayItems = scheduleData.filter(item => item.day === day).sort((a,b)=>a.time.localeCompare(b.time));
+  const dayItems = scheduleData.filter(item => String(item.day) === String(day)).sort((a,b)=> (a.time||'').localeCompare(b.time||''));
   const date = dayItems[0]?.date || '';
   header.textContent = date ? `Day ${day} - ${date}` : `Day ${day}`;
   container.appendChild(header);
