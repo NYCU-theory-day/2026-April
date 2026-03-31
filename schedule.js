@@ -80,7 +80,7 @@ function initSchedule() {
   // try fetching with an absolute path (covers edge cases with base URL).
   setTimeout(() => {
     if (scheduleData.length === 0) {
-      const alt = (window.location.origin || (window.location.protocol + '//' + window.location.host)) + '/data/schedule.csv';
+      const alt = 'data/schedule.csv';
       console.log('initSchedule: no data after initial fetch — retrying with', alt);
       fetch(alt).then(r => {
         if (!r.ok) throw new Error('alt fetch failed: ' + r.status);
