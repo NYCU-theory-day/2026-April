@@ -842,17 +842,17 @@ footer {
 
 /* highlight keynote talks */
 .talk.keynote {
-  background: #e8ffec; /* light green */
+  background: #fff9d6; /* light yellow */
   border-radius: 6px;
 }
 
 .talk.keynote .time {
-  color: #0b5a2b; /* darker green for better contrast */
+  color: #6b4f00; /* warm tone for contrast on yellow */
 }
 
 .talk.keynote .title,
 .talk.keynote .speaker {
-  color: #0b5a2b;
+  color: #6b4f00;
 }
 
 /* highlight break rows */
@@ -870,18 +870,18 @@ footer {
   color: #333333;
 }
 
-/* panel rows: light yellow */
+/* panel rows: light green */
 .talk.panel {
-  background: #fff9d6; /* light yellow */
+  background: #e8ffec; /* light green */
   border-radius: 6px;
 }
 
 .talk.panel .time {
-  color: #6b4f00; /* warm tone for contrast */
+  color: #0b5a2b; /* darker green for contrast */
 }
 
 .talk.panel .title,
 .talk.panel .speaker {
-  color: #6b4f00;
+  color: #0b5a2b;
 }
 
