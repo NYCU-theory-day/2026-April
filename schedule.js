@@ -1,4 +1,4 @@
-const CSV_URL = "/data/schedule.csv";
+const CSV_URL = "data/schedule.csv";
 let currentLang = "en";
 let scheduleData = [];
 let days = [];
