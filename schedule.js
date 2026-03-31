@@ -75,6 +75,26 @@ function initSchedule() {
     .catch(err => {
       console.error('Failed to load schedule CSV:', err);
     });
+
+  // fallback: if scheduleData still empty shortly after initial fetch,
+  // try fetching with an absolute path (covers edge cases with base URL).
+  setTimeout(() => {
+    if (scheduleData.length === 0) {
+      const alt = (window.location.origin || (window.location.protocol + '//' + window.location.host)) + '/data/schedule.csv';
+      console.log('initSchedule: no data after initial fetch — retrying with', alt);
+      fetch(alt).then(r => {
+        if (!r.ok) throw new Error('alt fetch failed: ' + r.status);
+        return r.text();
+      }).then(text => {
+        scheduleData = parseCSV(text);
+        console.log('initSchedule: alt CSV parsed — rows:', scheduleData.length);
+        days = Array.from(new Set(scheduleData.map(s => String(s.day || '').trim()).filter(Boolean))).sort((a,b)=> (Number(a) || 0) - (Number(b) || 0));
+        renderDayTabs();
+        if (days.length) renderDay(days[0]);
+        _scheduleInitialized = true;
+      }).catch(e => console.error('initSchedule: alt fetch failed', e));
+    }
+  }, 350);
 }
 
 // expose for page-loader
