@@ -55,7 +55,9 @@
           // Execute any scripts present in the loaded main (they don't run when inserted via innerHTML)
           const scripts = newMain.querySelectorAll('script');
           // create a base URL for resolving script src relative to the fetched page
-          const baseForNewDoc = window.location.origin.replace(/\/$/, '') + '/' + String(pageName).replace(/^\//, '');
+          // resolve the pageName against the current location so relative
+          // script paths in the fragment point to the correct directory
+          const baseForNewDoc = new URL(String(pageName), window.location.href).href;
           const scriptPromises = [];
           scripts.forEach(s => {
             const src = s.getAttribute('src');
