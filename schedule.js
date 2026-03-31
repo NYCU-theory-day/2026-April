@@ -1,4 +1,13 @@
-const CSV_URL = "data/schedule.csv";
+// Resolve CSV path relative to this script's URL when possible so SPA
+// navigation and different base paths don't break the fetch.
+const CSV_URL = (function(){
+  try {
+    const base = (document.currentScript && document.currentScript.src) ? document.currentScript.src : window.location.href;
+    return new URL('data/schedule.csv', base).href;
+  } catch (e) {
+    return 'data/schedule.csv';
+  }
+})();
 let currentLang = "en";
 let scheduleData = [];
 let days = [];
