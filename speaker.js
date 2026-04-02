@@ -17,7 +17,8 @@ function initSpeakers() {
       photo: "images/speakers/heekap.png",
       type: "Keynote Speaker",  
       expertise: "Algorithms and Data structures / AI Algorithms and Machine Learning / Optimization / Computational Geometry",
-      abstract: ""
+      talkTitle: "Voronoi Diagrams in the Presence of Obstacles",
+      abstract: `A Voronoi diagram is a fundamental geometric structure that partitions a space into regions according to the nearest site under a chosen distance measure. Owing to its rich structural and combinatorial properties, Voronoi diagrams have found broad applications in geometry, computer science, robotics and motion planning, biological modeling, and architecture. In this talk, we first review the basic definitions and key properties of Voronoi diagrams. We then introduce distance models in environments with obstacles (e.g., shortest-path/geodesic distances) and survey representative approaches for computing Voronoi diagrams in such settings—highlighting algorithmic ideas, typical challenges, and recent research progress, including both exact and approximation methods.`
     },
     {
       category: "keynote",
@@ -155,7 +156,8 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
       photo: "images/speakers/vtan9.jpg",
       type: "Invited Speaker",
       expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
-      abstract: ""
+      talkTitle: "Muon Outperforms Adam in Tail-End Associative Memory Learning",
+      abstract: `The Muon optimizer is consistently faster than Adam in training Large Language Models (LLMs), yet the mechanism underlying its success remains unclear. This paper demystifies this mechanism through the lens of associative memory. By ablating the transformer components optimized by Muon, we reveal that the associative memory parameters of LLMs, namely the Value and Output (VO) attention weights and Feed-Forward Networks (FFNs), are the primary contributors to Muon’s superiority. Motivated by this associative memory view, we then explain Muon’s superiority on real-world corpora, which are intrinsically heavy-tailed: a few 'head' classes are extremely frequent, while a vast number of 'tail' classes are individually rare. The superiority is explained through two key properties: (i) its update rule consistently yields a more isotropic singular spectrum than Adam; and as a result, (ii) on heavy-tailed data, it optimizes tail classes more effectively than Adam. Beyond empirical evidence, we theoretically confirm these findings by analyzing a one-layer associative memory model under class-imbalanced data. We prove that Muon consistently achieves balanced learning across classes regardless of feature embeddings, whereas Adam can induce large disparities in learning errors depending on embedding properties. In summary, our empirical observations and theoretical analyses reveal Muon’s core advantage: its update rule aligns with the outer-product structure of linear associative memories, enabling more balanced and effective learning of tail classes in heavy-tailed distributions than Adam.`
     },
 
     {
