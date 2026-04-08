@@ -88,13 +88,16 @@ In this talk I will survey exciting recent progress in this area. I will present
       category: "plenary",
       tabTitle: "Evangelos Kipouridis",
       name: "Evangelos Kipouridis",
-      title: "Assistant Professor",
+      title: "Researcher (Assistant Professor)",
       affiliation: "Max-Planck Institute",
       email: "",
       photo: "",
       type: "Invited Speaker",
       expertise: "(Hierarchical) Clustering / Graph Connectivity / Approximation Algorithms",
-      abstract: ""
+      talkTitle: "Hierarchical clustering: Approximation and beyond",
+      abstract: `The algorithmic task of constructing hierarchical representations of data has been studied by various communities over many decades. Their applications range from statistics and databases to the analysis of complex networks and, more recently, machine learning, where they have proven useful for understanding text, images, graphs and multi-relational data. The reason why hierarchical representations are so ubiquitous is that many data sets stemming from nature or society are organized according to a latent hierarchy. Furthermore, in contrast to "flat" clustering techniques, like k-means or k-median which cannot capture fine-grained relationships among points, hierarchical clustering reveals the structure of a data set at multiple levels of granularity simultaneously.
+
+Despite of the plethora of applications, the theory behind hierarchical clustering is underdeveloped, and popular heuristics offer little formal guarantees. In this talk I will present my work on algorithms with near optimal quality guarantees; in fact, in certain cases the algorithms run in near linear time, bridging the gap between theory and practice. Finally, I will discuss how to incorporate domain specific knowledge, leading to semi-supervised hierarchical clustering, as opposed to the traditional view of hierarchical clustering as an unsupervised learning method.`
     },
     {
       category: "others",
