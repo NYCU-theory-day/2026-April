@@ -96,7 +96,7 @@ In this talk I will survey exciting recent progress in this area. I will present
       title: "Researcher (Assistant Professor)",
       affiliation: "Max-Planck Institute",
       email: "",
-      photo: "",
+      photo: "images/speakers/csm_kipouridis_a4cf8cf0de.jpg",
       type: "Invited Speaker",
       expertise: "(Hierarchical) Clustering / Graph Connectivity / Approximation Algorithms",
       talkTitle: "Hierarchical clustering: Approximation and beyond",
