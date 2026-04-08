@@ -43,7 +43,12 @@ function initSpeakers() {
       photo: "images/speakers/csm_michelle_doering_ce43ac8db1.jpg",
       type: "Invited Speaker",
       expertise: "Temporal Graphs / Time-Varying Dynamic Networks",
-      abstract: ""
+      talkTitle: "Reachability-Preserving Isomorphisms in Temporal Graphs",
+      abstract: `Temporal graphs model networks in which edges appear only at specific points in time. While many classical graph-theoretic notions admit natural temporal counterparts, the added time dimension changes their behavior in subtle and often surprising ways. A fundamental example is temporal reachability, which in contrast to static graphs is generally not transitive.
+
+In this talk, I will first introduce temporal graphs and discuss some of their basic concepts and structural properties. I will then point to several areas in theoretical computer science and math where temporal graphs have proven useful, both as a technical tool and as a framework in its own right.
+
+The second part of the talk is concerned with the question of when two temporal graphs can be considered equivalent. I will present several notions of isomorphisms, and compare temporal graph classes under those. This will highlight how the different isomorphism types lead to a structural perspective on temporal graphs and help identify which temporal features are essential for the reachability patterns they realize.`
     },
     {
       category: "plenary",
@@ -83,6 +88,21 @@ In this talk I will survey exciting recent progress in this area. I will present
       type: "Invited Speaker",
       expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
       abstract: ""
+    },
+    {
+      category: "plenary",
+      tabTitle: "Evangelos Kipouridis",
+      name: "Evangelos Kipouridis",
+      title: "Researcher (Assistant Professor)",
+      affiliation: "Max-Planck Institute",
+      email: "",
+      photo: "images/speakers/csm_kipouridis_a4cf8cf0de.jpg",
+      type: "Invited Speaker",
+      expertise: "(Hierarchical) Clustering / Graph Connectivity / Approximation Algorithms",
+      talkTitle: "Hierarchical clustering: Approximation and beyond",
+      abstract: `The algorithmic task of constructing hierarchical representations of data has been studied by various communities over many decades. Their applications range from statistics and databases to the analysis of complex networks and, more recently, machine learning, where they have proven useful for understanding text, images, graphs and multi-relational data. The reason why hierarchical representations are so ubiquitous is that many data sets stemming from nature or society are organized according to a latent hierarchy. Furthermore, in contrast to "flat" clustering techniques, like k-means or k-median which cannot capture fine-grained relationships among points, hierarchical clustering reveals the structure of a data set at multiple levels of granularity simultaneously.
+
+Despite of the plethora of applications, the theory behind hierarchical clustering is underdeveloped, and popular heuristics offer little formal guarantees. In this talk I will present my work on algorithms with near optimal quality guarantees; in fact, in certain cases the algorithms run in near linear time, bridging the gap between theory and practice. Finally, I will discuss how to incorporate domain specific knowledge, leading to semi-supervised hierarchical clustering, as opposed to the traditional view of hierarchical clustering as an unsupervised learning method.`
     },
     {
       category: "others",
@@ -161,7 +181,14 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
       photo: "images/speakers/csm_Nadym_Mallek_679815004c.jpg",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Structural Algorithmics for Network Cut and Partitioning Problems",
-      abstract: ""
+      talkTitle: "Exploiting Tree-Like Structure in Graph Partitioning Problems",
+      abstract: `Graph partitioning problems such as Multicut and Requirement Cut are central in combinatorial optimization, yet remain notoriously hard to approximate in general graphs. In this talk, we show how tree-like structure can be systematically exploited to obtain improved approximation guarantees.
+      
+We focus on graph classes that exhibit structural similarity to trees, including bounded-treewidth graphs and series-parallel graphs of bounded depth. For Multicut, we present a combinatorial primal–dual framework on treewidth-2 graphs that extends augmenting-path techniques to the multicommodity setting, yielding constant-factor approximations. We then introduce a region-growing approach tailored to tree decompositions, leading to logarithmic approximation guarantees parameterized by the treewidth.
+
+For the more general Requirement Cut problem, we identify structural parameters that capture different notions of tree-likeness, such as a bounded number of spanning (or Steiner) trees and bounded depth in series-parallel graphs. Leveraging these properties, we design LP-based algorithms that achieve single-logarithmic approximation factors.
+
+Overall, the results highlight how combining combinatorial and LP-based techniques with appropriate structural insights allows us to go beyond worst-case guarantees, and clarify which aspects of tree-like structure are most beneficial for graph partitioning problems.`
     },
     {
       category: "others",
