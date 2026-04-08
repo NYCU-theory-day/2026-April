@@ -85,6 +85,18 @@ In this talk I will survey exciting recent progress in this area. I will present
       abstract: ""
     },
     {
+      category: "plenary",
+      tabTitle: "Evangelos Kipouridis",
+      name: "Evangelos Kipouridis",
+      title: "Assistant Professor",
+      affiliation: "Max-Planck Institute",
+      email: "",
+      photo: "",
+      type: "Invited Speaker",
+      expertise: "(Hierarchical) Clustering / Graph Connectivity / Approximation Algorithms",
+      abstract: ""
+    },
+    {
       category: "others",
       tabTitle: "Changyeol Lee",
       name: "Changyeol Lee",
