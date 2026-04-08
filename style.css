@@ -752,7 +752,7 @@ footer {
 }
 
 .sponsor-logo {
-  max-height: 40px; /* smaller, appropriate logo size */
+  max-height: 60px; /* smaller, appropriate logo size */
   width: auto;
   display: block;
 }

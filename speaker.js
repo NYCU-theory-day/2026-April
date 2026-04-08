@@ -17,7 +17,8 @@ function initSpeakers() {
       photo: "images/speakers/heekap.png",
       type: "Keynote Speaker",  
       expertise: "Algorithms and Data structures / AI Algorithms and Machine Learning / Optimization / Computational Geometry",
-      abstract: ""
+      talkTitle: "Voronoi Diagrams in the Presence of Obstacles",
+      abstract: `A Voronoi diagram is a fundamental geometric structure that partitions a space into regions according to the nearest site under a chosen distance measure. Owing to its rich structural and combinatorial properties, Voronoi diagrams have found broad applications in geometry, computer science, robotics and motion planning, biological modeling, and architecture. In this talk, we first review the basic definitions and key properties of Voronoi diagrams. We then introduce distance models in environments with obstacles (e.g., shortest-path/geodesic distances) and survey representative approaches for computing Voronoi diagrams in such settings—highlighting algorithmic ideas, typical challenges, and recent research progress, including both exact and approximation methods.`
     },
     {
       category: "keynote",
@@ -31,18 +32,6 @@ function initSpeakers() {
       expertise: "Discrete mathematics / Optimization / Algorithm theory",
       talkTitle: "Primal and Dual Representations",
       abstract: "Enumeration is one of the fundamental topics in discrete mathematics. From a complexity-theoretic perspective, three major open problems in enumeration remain unresolved: the vertex enumeration problem for polytopes, the monotone dualization problem for Boolean functions, and the Horn transformation problem. All of these problems are closely related to decision problems concerning primal and dual representations. In this talk, we provide an overview of their current status."
-    },
-    {
-      category: "plenary",
-      tabTitle: "Koustav Bhanja",
-      name: "Koustav Bhanja",
-      title: "Postdoctoral Researcher",
-      affiliation: "Weizmann Institute",
-      email: "koustav.bhanja@weizmann.ac.il ",
-      photo: "images/speakers/unnamed.jpg",
-      type: "Invited Speaker",
-      expertise: "Sensitivity Oracles (Fault-tolerant data structures) and efficient Dynamic Algorithms / Data structures and Algorithms",
-      abstract: ""
     },
     {
       category: "others",
@@ -66,7 +55,10 @@ function initSpeakers() {
       photo: "images/speakers/mik_pic.png",
       type: "Invited Speaker",
       expertise: "Approximation Algorithms / Online Submodular Assignment",
-      abstract: ""
+      talkTitle: "Algorithmic Matroid Intersection Coloring",
+      abstract: `Algorithms for optimization problems over matroids are arguably one of the most generally applicable tools in the combinatorial optimizer's toolkit. One such example is the Matroid Intersection Coloring problem, in which we seek to color a set of elements with the fewest number of colors so that the color classes are independent in one or more matroids. In 1968, Jack Edmonds completely resolved the single matroid case, giving a polynomial-time algorithm to construct an optimal coloring. Since then, there has been a rich literature analysing the chromatic number of these structures, often leveraging non-constructive tools such as topological Hall's theorem and Sperner's Lemma. Yet, a fundamental gap persists between existential bounds and constructive results which would enable us to actually compute such colorings. 
+
+In this talk I will survey exciting recent progress in this area. I will present findings from two recent papers in which we design new approximation algorithms for Matroid Intersection Coloring, as well as discuss applications to the famous Rota's Basis Conjecture. Based on joint work with Stephen Ardnt, Ben Moseley, Kirk Pruhs and Chaitanya Swamy, `
     },
     {
       category: "plenary",
@@ -155,7 +147,8 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
       photo: "images/speakers/vtan9.jpg",
       type: "Invited Speaker",
       expertise: "Information Theory / Statistical Signal Processing / Machine Learning",
-      abstract: ""
+      talkTitle: "Muon Outperforms Adam in Tail-End Associative Memory Learning",
+      abstract: `The Muon optimizer is consistently faster than Adam in training Large Language Models (LLMs), yet the mechanism underlying its success remains unclear. This paper demystifies this mechanism through the lens of associative memory. By ablating the transformer components optimized by Muon, we reveal that the associative memory parameters of LLMs, namely the Value and Output (VO) attention weights and Feed-Forward Networks (FFNs), are the primary contributors to Muon’s superiority. Motivated by this associative memory view, we then explain Muon’s superiority on real-world corpora, which are intrinsically heavy-tailed: a few 'head' classes are extremely frequent, while a vast number of 'tail' classes are individually rare. The superiority is explained through two key properties: (i) its update rule consistently yields a more isotropic singular spectrum than Adam; and as a result, (ii) on heavy-tailed data, it optimizes tail classes more effectively than Adam. Beyond empirical evidence, we theoretically confirm these findings by analyzing a one-layer associative memory model under class-imbalanced data. We prove that Muon consistently achieves balanced learning across classes regardless of feature embeddings, whereas Adam can induce large disparities in learning errors depending on embedding properties. In summary, our empirical observations and theoretical analyses reveal Muon’s core advantage: its update rule aligns with the outer-product structure of linear associative memories, enabling more balanced and effective learning of tail classes in heavy-tailed distributions than Adam.`
     },
 
     {
@@ -180,7 +173,12 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
       photo: "images/speakers/1520389726397.jpg",
       type: "Invited Speaker",
       expertise: "Combinatorial Optimization / Approximation Algorithms / Beyond-Worst-Case Analysis of Algorithms",
-      abstract: ""
+      talkTitle: "A Radius-Sensitive Approximation Algorithm for Connected Submodular Maximization",
+      abstract: `Connected Submodular Maximization (CSM) and its Directed and Directed Rooted variants (DCSM and DRCSM) are graph problems with important applications to wireless network deployment, path planning, reconstructing epidemic outbreaks, and cancer genome studies. Formally, in (Directed) CSM, we are given a (directed) graph G, a non-negative monotone submodular function f on subsets of G’s vertices, and an integer k. The goal is to select an (out-)tree in G, with k edges, whose vertex set maximizes f. DRCSM further specifies a vertex in G to be the root of the selected out-tree.
+
+For CSM, previous works have proposed approximation algorithms, which find a solution that maximizes f to within some factor. The state-of-the-art polynomial time algorithm achieves an Omega(1/sqrt{k})-approximation. We can also parameterize the approximation factor by the optimal tree’s radius, r, which is the maximum length of a path from its central vertex to any of its other vertices. This is a natural parameter to consider, especially in ‘small-world’ graph instances. However, the state-of-the-art polynomial time algorithm achieves an Omega(1/r)-approximation; ideally, the dependence on r in the approximation factor would match the best dependence on k.
+
+This talk presents my recent work (accepted to AAMAS 2026) which improves on the state-of-the-art approximation algorithms for CSM with respect to r as well as k. We propose a polynomial time framework that, for (Directed) CSM, achieves an Omega(eps^3/r^{eps})-approximation for every constant eps between 0 and 1. For DRCSM, our framework achieves an Omega(delta eps^3/r^{eps})-approximation that violates the size constraint by at most a factor of 1+delta for every delta between 1/k and 1. A key component of our framework is GreedyRadius, an algorithm for DRCSM that converts another algorithm’s approximation from depending on k to depending on r. Moreover, to use a subroutine for DRCSM, we propose a recursive greedy algorithm called RecApprox-d, where d denotes the number of levels of recursion used.`
     },
     {
       category: "panel",
