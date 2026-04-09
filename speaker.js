@@ -26,7 +26,7 @@ function initSpeakers() {
       name: "Kazuhisa Makino / 牧野 和久",
       title: "Professor",
       affiliation: "Kyto University",
-      email: "add @kurims.kyoto-u.ac.jp",
+      email: "add@kurims.kyoto-u.ac.jp",
       photo: "images/speakers/makino.jpg",
       type: "Keynote Speaker",
       expertise: "Discrete mathematics / Optimization / Algorithm theory",
@@ -75,7 +75,11 @@ In this talk I will survey exciting recent progress in this area. I will present
       photo: "images/speakers/照片-黃上恩-1.jpg",
       type: "Invited Speaker",
       expertise: "Dynamic Graph Data Structures and Algorithms / Distributed Graph Algorithms",
-      abstract: ""
+      talkTitle: "Disjoint Paths in Expanders in Deterministic Almost-Linear Time via Hypergraph Perfect Matching",
+      abstract: `We design efficient deterministic algorithms for finding short edge-disjoint paths in expanders. Before our work, deterministic polynomial-time algorithms were known only for expanders with constant conductance and were significantly slower. To obtain our result, we give an almost-linear time algorithm for hypergraph perfect matching under generalizations of Hall-type conditions (Haxell 1995), a powerful framework with applications in various settings, which until now has only admitted large polynomial-time algorithms (Annamalai 2018). In this talk, I will first explain the results, and give more details about the proofs of Haxell conditions and the analysis of the algorithm.
+
+This talk is based on a recent work collaborated with Matija Bucić, Zhongtian He, and Thatchaphol Saranurak.
+`
     },
     {
       category: "plenary",

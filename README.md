@@ -28,6 +28,25 @@ Run from the project root(dev for development):
     python -m http.server
 ​
 
+## 🔄 Auto Update (No Ctrl+F5)
+
+The site now includes client-side cache busting and periodic update checks.
+
+- Shared fragments and CSV are requested with no-cache settings.
+- The browser checks `site-version.json` every 2 minutes.
+- If the version changes, the page reloads automatically.
+
+When you update any website content (e.g., speaker info, schedule, text), also update the value of `version` in `site-version.json`.
+
+Example:
+
+```json
+{
+    "version": "2026-04-09-2"
+}
+```
+
+
 ## 🚀 Merge & Deployment
 
 ### Merge `dev` into `main`

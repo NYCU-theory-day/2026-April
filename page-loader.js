@@ -24,7 +24,12 @@
 
     // Fetch the page
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', pageName, true);
+    const requestUrl = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+      ? window.cacheUtils.appendCacheBuster(pageName)
+      : pageName;
+    xhr.open('GET', requestUrl, true);
+    xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    xhr.setRequestHeader('Pragma', 'no-cache');
     
     xhr.onload = function() {
       if (xhr.status === 200) {
@@ -77,7 +82,10 @@
               });
               if (!exists) {
                 const scr = document.createElement('script');
-                scr.src = resolvedSrc;
+                const freshSrc = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+                  ? window.cacheUtils.appendCacheBuster(resolvedSrc)
+                  : resolvedSrc;
+                scr.src = freshSrc;
                 scr.async = false;
                 const p = new Promise((resolve, reject) => {
                   scr.onload = () => resolve(resolvedSrc);
