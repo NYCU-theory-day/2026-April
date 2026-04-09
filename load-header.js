@@ -17,7 +17,12 @@
 
     // Use XMLHttpRequest for better compatibility
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'header.html', true);
+    const headerUrl = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+      ? window.cacheUtils.appendCacheBuster('header.html')
+      : 'header.html';
+    xhr.open('GET', headerUrl, true);
+    xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    xhr.setRequestHeader('Pragma', 'no-cache');
     
     xhr.onload = function() {
       if (xhr.status === 200) {

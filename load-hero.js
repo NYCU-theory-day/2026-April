@@ -16,7 +16,12 @@
     }
 
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'hero.html', true);
+    const heroUrl = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+      ? window.cacheUtils.appendCacheBuster('hero.html')
+      : 'hero.html';
+    xhr.open('GET', heroUrl, true);
+    xhr.setRequestHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    xhr.setRequestHeader('Pragma', 'no-cache');
 
     xhr.onload = function() {
       if (xhr.status === 200) {

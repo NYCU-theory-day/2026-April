@@ -57,7 +57,16 @@ function initSchedule() {
   } catch (e) {
     console.log('initSchedule: fetching CSV from (raw)', CSV_URL);
   }
-  fetch(CSV_URL)
+  const fetchUrl = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+    ? window.cacheUtils.appendCacheBuster(CSV_URL)
+    : CSV_URL;
+  fetch(fetchUrl, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    }
+  })
     .then(res => {
       console.log('initSchedule: fetch response', res.status, res.url);
       if (!res.ok) {
@@ -83,7 +92,16 @@ function initSchedule() {
     if (scheduleData.length === 0) {
       const alt = 'data/schedule.csv';
       console.log('initSchedule: no data after initial fetch — retrying with', alt);
-      fetch(alt).then(r => {
+      const altUrl = (window.cacheUtils && typeof window.cacheUtils.appendCacheBuster === 'function')
+        ? window.cacheUtils.appendCacheBuster(alt)
+        : alt;
+      fetch(altUrl, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
+        }
+      }).then(r => {
         if (!r.ok) throw new Error('alt fetch failed: ' + r.status);
         return r.text();
       }).then(text => {

@@ -5,6 +5,9 @@
   <meta name="google-site-verification" content="l5IildTRONKMW6E33TQVciUE6KtFiAXQJB9olCn_PnI" />
   <title>Schedule – NYCU Theory Day 2026</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -26,6 +29,12 @@
   <script src="schedule.js"></script>
 </main>
 
+<script src="cache-utils.js"></script>
+<script>
+  if (window.cacheUtils && typeof window.cacheUtils.setupAutoUpdateCheck === 'function') {
+    window.cacheUtils.setupAutoUpdateCheck({ versionUrl: 'site-version.json', intervalMs: 120000 });
+  }
+</script>
 <script src="load-footer.js"></script>
 <script src="load-header.js"></script>
 <script src="load-hero.js"></script>
