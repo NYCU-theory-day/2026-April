@@ -159,7 +159,7 @@ The payoff of having the full shape is that this allows analyzing a rich portfol
     },
     {
       category: "keynote",
-      tabTitle: "Vincent Y. F. Tan",
+      tabTitle: "Vincent Y.F. Tan",
       name: "Vincent Y. F. Tan",
       title: "Professor",
       affiliation: "National University of Singapore.",

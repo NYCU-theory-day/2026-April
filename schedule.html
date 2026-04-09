@@ -9,7 +9,20 @@
 </head>
 
 <body>
+<div id="speaker-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="speaker-modal-close" class="close">&times;</span>
+    <div id="speaker-modal-body"></div>
+  </div>
+</div>
 
+<style>
+.modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1000; }
+.modal-content { background:#fff; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
+.close { position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; }
+.speaker-photo { width:100px; height:100px; object-fit:cover; border-radius:50%; margin-right:15px; float:left; }
+.speaker-info { overflow:hidden; }
+</style>
 <div class="page-container">
 
 <main>
@@ -23,7 +36,7 @@
   <!-- Per-day schedule content -->
   <div id="schedule-day" class="schedule-day"></div>
   
-  <script src="schedule.js"></script>
+  
 </main>
 
 <script src="load-footer.js"></script>
