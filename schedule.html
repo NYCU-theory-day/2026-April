@@ -23,13 +23,21 @@
 .modal { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); display:flex; align-items:center; justify-content:center; z-index:1000; }
 .modal-content { background:#fff; padding:20px; border-radius:8px; max-width:600px; width:90%; max-height:80%; overflow-y:auto; position:relative; }
 .close { position:absolute; top:10px; right:15px; font-size:24px; cursor:pointer; }
-.speaker-photo { width:100px; height:100px; object-fit:cover; border-radius:50%; margin-right:15px; float:left; }
+.speaker-photo { width:120px; height:160px; object-fit:cover; border-radius:8px; margin-right:15px; float:left; }
 .speaker-info { overflow:hidden; }
 </style>
 <div class="page-container">
 
 <main>
-  
+<script>
+    (function() {
+      const reloadFlag = 'schedule_force_reloaded';
+      if (!sessionStorage.getItem(reloadFlag)) {
+        sessionStorage.setItem(reloadFlag, 'true'); 
+        window.location.href = 'schedule.html'; 
+      }
+    })();
+  </script>
   <h1>Theory Day Schedule</h1>
   <br />
 
@@ -38,7 +46,6 @@
 
   <!-- Per-day schedule content -->
   <div id="schedule-day" class="schedule-day"></div>
-  
   
 </main>
 
