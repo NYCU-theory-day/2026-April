@@ -91,7 +91,10 @@ This talk is based on a recent work collaborated with Matija Bucić, Zhongtian H
       photo: "images/speakers/profilepic-cropped.jpg",
       type: "Invited Speaker",
       expertise: "Approximation & Online Algorithms for Combinatorial Optimization",
-      abstract: ""
+      talkTitle: "Online TCP Acknowledgment under General Delays",
+      abstract: `In a seminal work, Dooly, Goldman, and Scott (STOC 1998; JACM 2001) introduced the classic Online TCP Acknowledgment problem. In this problem, a sequence of n packets arrives over time, and the objective is to minimize both the number of acknowledgments sent and the total delay experienced by the packets. They showed that a greedy algorithm---acknowledge when the delay of pending packets equals the acknowledgment cost---is 2-competitive. 
+
+In this work, we study Online TCP Acknowledgments under more general delay costs. In the first setting, the overall delay cost is a function of the vector of packet delays. We show that the classic greedy is still 2-competitive for continuous delay functions and l_p norms. In the second setting, each batch of requests that were acknowledged together incurs a cost that depends on the batch and the acknowledgment time. We show that the classic greedy is linear competitive, and show that the deterministic competitive ratio is Theta(log n). Remarkably, our algorithm only requires the bare minimum assumption that the batch delay cost is monotone.`
     },
     {
       category: "plenary",
