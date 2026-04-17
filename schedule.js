@@ -229,8 +229,8 @@ function renderDay(day) {
     if (!item.time) {
       classes.push('chairman-row');
       div.className = classes.join(' ');
-      const speakerLabel = item.speaker && !item.chairman ? `Chairman: ${escapeHtml(item.speaker)}` : '';
-      const chairmanLabel = item.chairman ? `Chairman: ${escapeHtml(item.chairman)}` : '';
+      const speakerLabel = item.speaker && !item.chairman ? `Chair: ${escapeHtml(item.speaker)}` : '';
+      const chairmanLabel = item.chairman ? `Chair: ${escapeHtml(item.chairman)}` : '';
       div.innerHTML = `
         <div class="time"></div>
         <div class="content">
