@@ -38,6 +38,7 @@ function initSchedule() {
     console.log('initSchedule: DOM not ready, deferring initialization');
     return;
   }
+  attachProgramDownloadButton();
   // If we already fetched data, just re-render into current DOM
   if (scheduleData && scheduleData.length > 0) {
     days = Array.from(new Set(scheduleData.map(s => String(s.day || '').trim()).filter(Boolean))).sort((a,b)=> (Number(a) || 0) - (Number(b) || 0));
@@ -127,15 +128,40 @@ function parseCSV(text) {
   const headers = rawHeaders.map(h => String(h).toLowerCase());
   console.log('parseCSV: headers=', headers);
 
-  return lines.map(line => {
-    const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
-    const obj = {};
+  const rows = lines.map((line, idx) => {
+    const values = line.split(/,(?=(?:(?:[^\"]*"){2})*[^\"]*$)/);
+    const obj = { idx };
     headers.forEach((h, i) => {
       const raw = values[i] ?? "";
       obj[h] = raw.replace(/^"|"$/g, "").trim();
     });
     return obj;
   });
+
+  // carry forward day/date values for rows that omit them intentionally.
+  // If a blank-time row appears immediately before a new explicit day,
+  // assign it to the upcoming day rather than the previous day.
+  let lastDay = '';
+  let lastDate = '';
+  rows.forEach((row, index) => {
+    if (row.day) {
+      lastDay = row.day;
+      if (row.date) lastDate = row.date;
+      else row.date = lastDate;
+      return;
+    }
+
+    const nextExplicit = rows.slice(index + 1).find(r => r.day);
+    if (!row.time && nextExplicit && nextExplicit.day && nextExplicit.day !== lastDay) {
+      row.day = nextExplicit.day;
+      row.date = nextExplicit.date || lastDate;
+    } else {
+      row.day = lastDay;
+      row.date = row.date || lastDate;
+    }
+  });
+
+  return rows;
 }
 
 function renderDayTabs() {
@@ -171,7 +197,9 @@ function renderDay(day) {
   const header = document.createElement('div');
   header.className = 'day-header';
 
-  const dayItems = scheduleData.filter(item => String(item.day) === String(day)).sort((a,b)=> (a.time||'').localeCompare(b.time||''));
+  const dayItems = scheduleData
+    .filter(item => String(item.day) === String(day))
+    .sort((a, b) => a.idx - b.idx);
   const date = dayItems[0]?.date || '';
   header.textContent = date ? `Day ${day} - ${date}` : `Day ${day}`;
   container.appendChild(header);
@@ -184,9 +212,10 @@ function renderDay(day) {
   }
 
   dayItems.forEach(item => {
-    // use the new CSV columns: title and speaker
+    // use the new CSV columns: title, speaker, and chairman
     const title = item.title || item[`title_${currentLang}`] || item.title_en || '';
     const speaker = item.speaker || item.speaker_en || '';
+    const chairman = item.chairman || item[`chairman_${currentLang}`] || item.chairman_en || '';
 
     const div = document.createElement('div');
     // add classes when the talk type is plenary or keynote for styling
@@ -194,20 +223,56 @@ function renderDay(day) {
     const classes = ['talk'];
     if (typeNorm === 'plenary') classes.push('plenary');
     if (typeNorm === 'keynote') classes.push('keynote');
-    // treat any type containing 'break' as a break row
     if (typeNorm.includes('break')) classes.push('break');
-    // treat panels similarly to breaks (light yellow)
     if (typeNorm.includes('panel')) classes.push('panel');
-    div.className = classes.join(' ');
-    div.innerHTML = `
-      <div class="time">${item.time || ''}</div>
-      <div class="content">
-        <div class="title">${escapeHtml(title)}</div>
-        ${speaker ? `<div class="speaker">${escapeHtml(speaker)}</div>` : ''}
-      </div>
-    `;
+
+    if (!item.time) {
+      classes.push('chairman-row');
+      div.className = classes.join(' ');
+      const speakerLabel = item.speaker && !item.chairman ? `Chairman: ${escapeHtml(item.speaker)}` : '';
+      const chairmanLabel = item.chairman ? `Chairman: ${escapeHtml(item.chairman)}` : '';
+      div.innerHTML = `
+        <div class="time"></div>
+        <div class="content">
+          <div class="title">${escapeHtml(title)}</div>
+          ${speakerLabel ? `<div class="speaker">${speakerLabel}</div>` : ''}
+          ${chairmanLabel ? `<div class="speaker">${chairmanLabel}</div>` : ''}
+        </div>
+      `;
+    } else {
+      div.className = classes.join(' ');
+      div.innerHTML = `
+        <div class="time">${escapeHtml(item.time)}</div>
+        <div class="content">
+          <div class="title">${escapeHtml(title)}</div>
+          ${speaker ? `<div class="speaker">${escapeHtml(speaker)}</div>` : ''}
+        </div>
+      `;
+    }
 
     container.appendChild(div);
+  });
+}
+
+function attachProgramDownloadButton() {
+  const button = document.getElementById('download-program-pdf');
+  if (!button || button.dataset.downloadAttached) return;
+  button.dataset.downloadAttached = '1';
+  button.addEventListener('click', () => {
+    const files = [
+      'TheoryDay_program_poster_p1.pdf',
+      'TheoryDay_program_poster_p2.pdf'
+    ];
+
+    files.forEach(file => {
+      const link = document.createElement('a');
+      link.href = file;
+      link.download = file;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   });
 }
 

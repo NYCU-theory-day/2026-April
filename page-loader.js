@@ -12,8 +12,8 @@
   const pages = {
     'index.html': { title: 'NYCU Theory Day 2026', file: 'index.html' },
     'speaker.html':{title:'Speaker – NYCU Theory Day 2026', file:'speaker.html'},
+    'program.html': { title: 'Program – NYCU Theory Day 2026', file: 'program.html' },
     'registration.html': { title: 'Registration – NYCU Theory Day 2026', file: 'registration.html' },
-    'schedule.html': { title: 'Schedule – NYCU Theory Day 2026', file: 'schedule.html' },
     'city-tour.html': { title: 'City Tour – NYCU Theory Day 2026', file: 'city-tour.html' }
   };
 
