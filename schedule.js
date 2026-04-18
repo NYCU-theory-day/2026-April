@@ -594,16 +594,34 @@ function attachSpeakerLinkListeners() {
 }
 
 // Close modal when clicking outside or on close button
-document.addEventListener('DOMContentLoaded', () => {
+function attachModalCloseHandler() {
   const modal = document.getElementById('speaker-modal');
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal || e.target.classList.contains('speaker-modal-close')) {
-        hideSpeakerModal();
-      }
-    });
-  }
-});
+  if (!modal) return;
+  
+  // Remove any existing listeners to avoid duplicates
+  modal.replaceWith(modal.cloneNode(true));
+  const newModal = document.getElementById('speaker-modal');
+  
+  newModal.addEventListener('click', (e) => {
+    if (e.target === newModal || e.target.classList.contains('speaker-modal-close')) {
+      hideSpeakerModal();
+    }
+  });
+}
+
+// Attach immediately and on DOM changes
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', attachModalCloseHandler);
+} else {
+  attachModalCloseHandler();
+}
+
+// Re-attach when modal is revealed (for SPA compatibility)
+const originalShowModal = showSpeakerModal;
+window.showSpeakerModal = function(speakerName) {
+  attachModalCloseHandler();
+  return originalShowModal(speakerName);
+};
 
 // Ensure initSchedule runs when the schedule container appears in the DOM.
 // This covers cases where the script is loaded before the SPA inserts the page
