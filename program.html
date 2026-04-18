@@ -30,6 +30,23 @@
   <!-- Per-day schedule content -->
   <div id="schedule-day" class="schedule-day"></div>
   
+  <!-- Speaker Modal -->
+  <div id="speaker-modal" class="speaker-modal">
+    <div class="speaker-modal-content">
+      <span class="speaker-modal-close">&times;</span>
+      <img id="speaker-modal-photo" class="speaker-modal-photo" src="" alt="Speaker Photo">
+      <div class="speaker-modal-info">
+        <h2 id="speaker-modal-name" class="speaker-modal-name"></h2>
+        <p><strong>Affiliation:</strong> <span id="speaker-modal-affiliation" class="speaker-modal-affiliation"></span></p>
+        <p id="speaker-modal-talk-title-row"><strong>Talk Title:</strong> <span id="speaker-modal-talk-title" class="speaker-modal-talk-title"></span></p>
+        <div id="speaker-modal-abstract-row" class="speaker-modal-abstract-section">
+          <strong>Abstract:</strong>
+          <p id="speaker-modal-abstract" class="speaker-modal-abstract"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   <script src="schedule.js"></script>
 </main>
 
