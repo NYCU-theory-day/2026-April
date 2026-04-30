@@ -12,7 +12,8 @@ day,date,time,type,title,speaker,chairman
 ,,,, Invited Session II, Hao-Tsung Yang (NCU)
 2,4/22,10:20 – 11:10,plenary,Online TCP Acknowledgment under General Delays,William Umboh (University of Melbourne)
 2,4/22,11:10 – 12:00,plenary,Disjoint Paths in Expanders in Deterministic Almost-Linear Time via Hypergraph Perfect Matching,Shang-En Huang (National Taiwan University)
-2,4/22,12:00 – 13:30,panel,Lunch Panel,Ting-Jung Chang (NYCU) and Yu-Chun Yen (NYCU)
+2,4/22,12:10 – 12:40,panel,Lunch Panel - I (Chair: Evangelos Kipouridis (Max-Planck Institute)),"Ting-Jung Chang (NYCU), Yu-Chun Yen (NYCU), and Shang-En Huang (NTU)"
+2,4/22,12:40 – 13:10,panel,Lunch Panel - II (Chair: William Umboh (University of Melbourne)),"Michael Zlatin (Pomona College), Nadym Mallek (Hasso Plattner Institute), and Michelle Döring (Hasso Plattner Institute)"
 ,,,, Invited Session III, Shin-Yu Tsai (NYCU)
 2,4/22,13:30 – 14:20,plenary,Hierarchical clustering: Approximation and beyond,Evangelos Kipouridis (Max-Planck Institute)
 2,4/22,14:20 – 15:10,plenary,Handling LP-Rounding for Hierarchical Clustering and Fitting Distances by Ultrametrics,Changyeol Lee (Yonsei University)
